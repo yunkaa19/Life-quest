@@ -2,41 +2,90 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AreaSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Color defaultColor = new Color(1f, 1f, 1f, 0.7f);
+    private Color selectedColor = new Color(1f, 1f, 1f, 1.0f);
+    private Dictionary<string, string> sceneMapping = new Dictionary<string, string>();
+    private float sceneLoadDelay = 3f;
+    private string selectedSpriteName;
+
+    private void Start()
     {
-        
+        SceneMapper();
+        ResetAllSpriteColors();
+        AddTouchListener();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddTouchListener()
     {
-        // Check if there is any touch input
-        if (Input.touchCount > 0)
+        Button[] buttons = GetComponentsInChildren<Button>();
+        foreach (Button button in buttons)
         {
-            // Get the first touch
-            Touch touch = Input.GetTouch(0);
+            EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
 
-            // Check if the touch is over a UI element
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (trigger == null)
             {
-                //Debug.Log("Touched UI element");
-                return;
+                trigger = button.gameObject.AddComponent<EventTrigger>();
             }
 
-            // Convert touch position to world space
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerDown;
+            entry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data, button.gameObject); });
+            trigger.triggers.Add(entry);
+        }
+    }
 
-            // Cast a ray from the touch position
-            RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+    private void SceneMapper()
+    {
+        sceneMapping.Add("GREENPillar", "SamScene");
+        sceneMapping.Add("YELLOWPillar", "SamScene");
+        sceneMapping.Add("REDPillar", "SamScene");
+        sceneMapping.Add("BLUEPillar", "SamScene");
+        sceneMapping.Add("PINKPillar", "SamScene");
+    }
 
-            // Check if the ray hits a collider
-            if (hit.collider != null)
+    private void OnPointerDown(PointerEventData data, GameObject clickedSprite)
+    {
+
+        selectedSpriteName = clickedSprite.name;
+        Debug.Log("Selected Sprite: " + selectedSpriteName);
+
+
+        Image spriteImage = clickedSprite.GetComponent<Image>();
+        if (spriteImage != null)
+        {
+            ResetAllSpriteColors();
+            spriteImage.color = selectedColor;
+        }
+
+        if (sceneMapping.ContainsKey(selectedSpriteName))
+        {
+            Invoke("LoadSceneWithDelay", sceneLoadDelay);
+        }
+        else
+        {
+            Debug.LogError("Invalid pillar name!");
+        }
+    }
+
+    private void LoadSceneWithDelay()
+    {
+        SceneManager.LoadScene(sceneMapping[selectedSpriteName]);
+    }
+
+    private void ResetAllSpriteColors()
+    {
+        Button[] buttons = GetComponentsInChildren<Button>();
+        foreach (Button button in buttons)
+        {
+            Image spriteImage = button.GetComponent<Image>();
+            if (spriteImage != null)
             {
-                Debug.Log("Selected: " + hit.collider.gameObject.name);
+                spriteImage.color = defaultColor;
             }
         }
     }
