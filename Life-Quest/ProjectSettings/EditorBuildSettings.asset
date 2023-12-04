@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 2cdeb5cf35f13744288905cc067c2b70
+  - enabled: 1
+    path: Assets/Scenes/YellowFeeling.unity
+    guid: 024f4e87897600940bfaf58d13dfc103
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 70e61060d8f35644a99c03192092458d, type: 2}
