@@ -402,9 +402,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 191590915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9aa35c39ab79c46939e34f225dc92e, type: 3}
+  m_Script: {fileID: 11500000, guid: e2ede43e92563c74985331fa72ce90c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yourButton: {fileID: 2145882464}
 --- !u!1 &363794819
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +857,7 @@ GameObject:
   - component: {fileID: 2145882466}
   - component: {fileID: 2145882465}
   - component: {fileID: 2145882464}
+  - component: {fileID: 2145882467}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -965,6 +967,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145882462}
   m_CullTransparentMesh: 1
+--- !u!114 &2145882467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145882462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ede43e92563c74985331fa72ce90c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourButton: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
