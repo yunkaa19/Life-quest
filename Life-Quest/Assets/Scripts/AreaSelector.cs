@@ -41,11 +41,11 @@ public class AreaSelector : MonoBehaviour
 
     private void SceneMapper()
     {
-        sceneMapping.Add("GREENPillar", "SamScene");
-        sceneMapping.Add("YELLOWPillar", "SamScene");
-        sceneMapping.Add("REDPillar", "SamScene");
-        sceneMapping.Add("BLUEPillar", "SamScene");
-        sceneMapping.Add("PINKPillar", "SamScene");
+        sceneMapping.Add("GREENPillar", "Main Menu");
+        sceneMapping.Add("YELLOWPillar", "Main Menu");
+        sceneMapping.Add("REDPillar", "Main Menu");
+        sceneMapping.Add("BLUEPillar", "Main Menu");
+        sceneMapping.Add("PINKPillar", "Main Menu");
     }
 
     private void OnPointerDown(PointerEventData data, GameObject clickedSprite)
