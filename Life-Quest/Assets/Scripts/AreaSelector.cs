@@ -12,6 +12,7 @@ public class AreaSelector : MonoBehaviour
     private Dictionary<string, string> sceneMapping = new Dictionary<string, string>();
     private float sceneLoadDelay = 3f;
     private string selectedSpriteName;
+    public string loadingSceneName = "LoadingScene";
 
     private void Start()
     {
@@ -64,12 +65,18 @@ public class AreaSelector : MonoBehaviour
 
         if (sceneMapping.ContainsKey(selectedSpriteName))
         {
-            Invoke("LoadSceneWithDelay", sceneLoadDelay);
+            LoadLoadingScene(sceneMapping[selectedSpriteName]);
         }
         else
         {
             Debug.LogError("Invalid pillar name!");
         }
+    }
+
+    private void LoadLoadingScene(string targetScene)
+    {
+        PlayerPrefs.SetString("TargetScene", targetScene);
+        SceneManager.LoadScene(loadingSceneName);
     }
 
     private void LoadSceneWithDelay()
