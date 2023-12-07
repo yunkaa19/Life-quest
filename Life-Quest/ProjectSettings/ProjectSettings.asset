@@ -913,7 +913,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -933,11 +939,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7c34d308-50dc-4083-98a8-2d7c568a52a8
+  cloudProjectId: f4409322-b1f7-4df6-942c-b0214a720411
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Life-Quest
-  organizationId: stimxxx99
+  organizationId: yunus-3574541
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
