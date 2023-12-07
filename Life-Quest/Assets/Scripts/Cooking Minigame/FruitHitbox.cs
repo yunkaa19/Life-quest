@@ -70,6 +70,7 @@ public class FruitHitbox : MonoBehaviour
         if(slicableFruit.GetSlicedObject() == null){
             slicableFruit.SetSlicedObject(sliced);
             slicableFruit.Slice();
+            isTouching = false; // Reset the flag
         }
 
 
