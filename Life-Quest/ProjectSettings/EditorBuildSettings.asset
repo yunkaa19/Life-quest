@@ -15,5 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/YellowFeeling.unity
     guid: 024f4e87897600940bfaf58d13dfc103
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 1e73b9a1fbf4f944e98a3984ffc7fe20, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 6fd4659f5fdd9a04a86cdd25882b2779, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 70e61060d8f35644a99c03192092458d, type: 2}
