@@ -16,6 +16,7 @@ public class collectTreasure : MonoBehaviour
         if(collision.gameObject.tag == "Treasure")
         {
             Destroy(collision.gameObject);
+            Handheld.Vibrate();
             Debug.Log("You found it");
         }
     }

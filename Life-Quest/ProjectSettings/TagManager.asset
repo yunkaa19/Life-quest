@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Treasure
+  - Puzzle
   layers:
   - Default
   - TransparentFX
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Pieces
+    uniqueID: 1966197511
     locked: 0
