@@ -15,8 +15,7 @@ public class SceneTransition : MonoBehaviour
 
     void Start()
     {
-        Button btn = yourButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
+        yourButton.onClick.AddListener(TaskOnClick);
     }
     void Update()
     {
