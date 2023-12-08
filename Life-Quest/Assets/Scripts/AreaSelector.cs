@@ -45,7 +45,7 @@ public class AreaSelector : MonoBehaviour
         sceneMapping.Add("GREENPillar", "Main Menu");
         sceneMapping.Add("YELLOWPillar", "YellowFeeling");
         sceneMapping.Add("REDPillar", "Main Menu");
-        sceneMapping.Add("BLUEPillar", "Main Menu");
+        sceneMapping.Add("BLUEPillar", "BlueSeeing");
         sceneMapping.Add("PINKPillar", "Main Menu");
     }
 
@@ -77,11 +77,6 @@ public class AreaSelector : MonoBehaviour
     {
         PlayerPrefs.SetString("TargetScene", targetScene);
         SceneManager.LoadScene(loadingSceneName);
-    }
-
-    private void LoadSceneWithDelay()
-    {
-        SceneManager.LoadScene(sceneMapping[selectedSpriteName]);
     }
 
     private void ResetAllSpriteColors()
