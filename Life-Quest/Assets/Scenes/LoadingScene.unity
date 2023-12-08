@@ -215,11 +215,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4019261579570829649, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: fadeCanvasGroup
+      value: 
+      objectReference: {fileID: 1105599491}
+    - target: {fileID: 4698133303390025438, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800999179219447447, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255023714003383576, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1480693955865043502, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105599491}
   m_SourcePrefab: {fileID: 100100000, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+--- !u!1 &1105599485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480693955865043502, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+  m_PrefabInstance: {fileID: 1105599484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1105599491
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105599485}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1315351028
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +360,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
