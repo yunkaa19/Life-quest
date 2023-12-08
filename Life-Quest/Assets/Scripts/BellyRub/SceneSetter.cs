@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class SceneSetter : MonoBehaviour
 {
-   public RectTransform topLine;
+    #region Variables
+
+    public RectTransform topLine;
     public RectTransform bottomLine;
     public RectTransform bellyImage;
 
@@ -19,6 +21,12 @@ public class SceneSetter : MonoBehaviour
     private bool bellyImageReached = false;
     
     public bool isSceneSet = false; // used to check out if the scene is set up so that the belly rub can be started.
+    #endregion
+
+
+    #region Unity Methods
+
+    
 
     void Update()
     {
@@ -56,5 +64,6 @@ public class SceneSetter : MonoBehaviour
             }
         }
     }
+    #endregion
 }
 
