@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIButtonCookingGame : MonoBehaviour
+public class UIButton : MonoBehaviour
 {
     public void ReturnGame()
     {
