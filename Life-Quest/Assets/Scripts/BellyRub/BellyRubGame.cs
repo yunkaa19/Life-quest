@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BellyRubGame : MonoBehaviour
@@ -10,7 +11,7 @@ public class BellyRubGame : MonoBehaviour
     /// Holds the variables for gyroscope control, game state flags, timers,
     /// and UI elements for the BellyRub game.
     /// </summary>
-     
+
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
@@ -18,12 +19,12 @@ public class BellyRubGame : MonoBehaviour
     private Coroutine countdownCoroutine;
 
     public TMP_Text countdownText;
-    
+
     //fallback for non-Android or when vibration is not supported
     public Button startButton;
     private bool manualRubbing = false;
-    
-    
+
+
     #endregion
 
     #region Unity Methods
@@ -34,15 +35,15 @@ public class BellyRubGame : MonoBehaviour
     void Start()
     {
         gyroEnabled = EnableGyro();
-        if(gyroEnabled == true)
-        { 
+        if (gyroEnabled == true)
+        {
             Destroy(startButton.gameObject);
         }
         Input.gyro.enabled = true;
         countdownText.text = "30";
     }
 
-    
+
     /// <summary>
     /// Every frame the gyroscope status gets checked and updates
     /// the rubbing timer. Responds to real-time changes and player interactions.
@@ -78,7 +79,7 @@ public class BellyRubGame : MonoBehaviour
         {
             gyro = Input.gyro;
             gyro.enabled = true;
-           
+
             return true;
         }
         return false;
@@ -123,7 +124,7 @@ public class BellyRubGame : MonoBehaviour
         StartCoroutine(CountdownWithoutGyro());
     }
 
-    
+
     /// <summary>
     /// Manages the countdown timer for the game. As the exercise is to be done for 30 seconds, the timer is set to 30 seconds.
     /// </summary>
@@ -153,12 +154,23 @@ public class BellyRubGame : MonoBehaviour
             isRubbing = false;
             rubbingTimer = 0f;
             countdownCoroutine = null;
+
+            LoadTargetScene();
         }
     }
 
+    private void LoadTargetScene()
+    {
+        // Increment minigames played
+        //int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+        //Debug.Log("minigames played" + minigamesPlayed.ToString());
 
-    
-    
+        //PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+        string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
+        SceneManager.LoadScene(targetScene);
+
+    }
+
     /// <summary>
     /// Resets the countdown and the game's rubbing state, affecting the game's state.
     /// </summary>
@@ -179,7 +191,7 @@ public class BellyRubGame : MonoBehaviour
         // Reset the UI
         countdownText.text = "30";
     }
-    
+
     /// <summary>
     /// This Coroutine is used as a fallback for when gyroscope is not available.
     /// </summary>
@@ -187,7 +199,7 @@ public class BellyRubGame : MonoBehaviour
     {
         int timeLeft = 30; // 30 seconds countdown
         countdownText.text = timeLeft.ToString() + "s";
-        
+
         while (timeLeft > 0)
         {
             yield return new WaitForSeconds(1f);

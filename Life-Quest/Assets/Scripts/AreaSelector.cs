@@ -76,6 +76,19 @@ public class AreaSelector : MonoBehaviour
     private void LoadLoadingScene(string targetScene)
     {
         PlayerPrefs.SetString("TargetScene", targetScene);
+        int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+
+        if(minigamesPlayed >= 4) { PlayerPrefs.SetInt("MinigamesPlayed", 0); }
+        Debug.Log("minigames played" + minigamesPlayed.ToString());
+        if (minigamesPlayed == 1)
+        {
+            PlayerPrefs.SetInt("PlayBellyRub", 1); // Set the flag to play the belly rub minigame
+        }
+        else
+        {
+            PlayerPrefs.SetInt("PlayBellyRub", 0); // Reset the flag
+        }
+
         SceneManager.LoadScene(loadingSceneName);
     }
 
