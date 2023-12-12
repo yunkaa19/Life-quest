@@ -161,11 +161,6 @@ public class BellyRubGame : MonoBehaviour
 
     private void LoadTargetScene()
     {
-        // Increment minigames played
-        //int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
-        //Debug.Log("minigames played" + minigamesPlayed.ToString());
-
-        //PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
         string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
         SceneManager.LoadScene(targetScene);
 
