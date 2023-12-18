@@ -23,9 +23,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PinkTasting.unity
     guid: 5d9e756d7a8b3e849a48073e8cb7e116
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BellyRubMini.unity
     guid: 8e3b4341d8a33784abaa1e090109f1e9
+  - enabled: 1
+    path: Assets/Scenes/DEV-SCENES/YunuzScene.unity
+    guid: f082764aa1190534a9f80c36f101da60
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: faba1dd2a8122d6449d6b14bf4a7d0b8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
