@@ -82,11 +82,11 @@ public class AreaSelector : MonoBehaviour
         Debug.Log("minigames played" + minigamesPlayed.ToString());
         if (minigamesPlayed == 1)
         {
-            PlayerPrefs.SetInt("PlayBellyRub", 1); // Set the flag to play the belly rub minigame
+            PlayerPrefs.SetInt("PlayBellyRub", 1);
         }
         else
         {
-            PlayerPrefs.SetInt("PlayBellyRub", 0); // Reset the flag
+            PlayerPrefs.SetInt("PlayBellyRub", 0); 
         }
 
         SceneManager.LoadScene(loadingSceneName);
