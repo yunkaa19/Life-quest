@@ -44,7 +44,7 @@ public class AreaSelector : MonoBehaviour
     {
         sceneMapping.Add("GREENPillar", "Main Menu");
         sceneMapping.Add("YELLOWPillar", "YellowFeeling");
-        sceneMapping.Add("REDPillar", "Main Menu");
+        sceneMapping.Add("REDPillar", "RedHearing");
         sceneMapping.Add("BLUEPillar", "BlueSeeing");
         sceneMapping.Add("PINKPillar", "PinkTasting");
     }
