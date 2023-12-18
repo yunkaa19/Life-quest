@@ -73,8 +73,5 @@ public class FruitHitbox : MonoBehaviour
             isTouching = false; // Reset the flag
         }
 
-
-
-        // Add your specific actions or code here
     }
 }
