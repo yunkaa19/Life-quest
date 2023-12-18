@@ -47,6 +47,7 @@ public class AreaSelector : MonoBehaviour
         sceneMapping.Add("REDPillar", "RedHearing");
         sceneMapping.Add("BLUEPillar", "BlueSeeing");
         sceneMapping.Add("PINKPillar", "PinkTasting");
+        sceneMapping.Add("GREYPillar", "NeutralMini");
     }
 
     private void OnPointerDown(PointerEventData data, GameObject clickedSprite)

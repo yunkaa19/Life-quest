@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureGame
       objectReference: {fileID: 0}
+    - target: {fileID: 7315386965572618947, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8572601237144629508, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0
