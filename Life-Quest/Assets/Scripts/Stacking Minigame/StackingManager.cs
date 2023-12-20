@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class StackingManager : MonoBehaviour
@@ -119,6 +120,12 @@ public class StackingManager : MonoBehaviour
         if (touchingPairs.Count >= 3)
         {
             // Success logic here
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            // Increment minigamesPlayed after the game is completed
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
+
             Debug.Log("Balanced Successfully!");
         }
         else

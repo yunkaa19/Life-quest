@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: TaskData
   m_EditorClassIdentifier: 
   tasks:
-  - description: Task 1 for Sight
+  - description: How many birds do you see if you look outside
     sense: Sight
-  - description: Task 2 for Sight
+  - description: Walk to your fridge and choose an item to look at
     sense: Sight
-  - description: Task 1 for Hearing
+  - description: 'listen to your surroundings: what is the most interesting sound
+      you hear?'
     sense: Hearing
-  - description: Task 2 for Hearing
+  - description: Pick a song that makes you feel good, listen to it
     sense: Hearing
-  - description: Task 1 for Touch
+  - description: Touch an object you regularly hold, what makes it feel familiar?
     sense: Touch
   - description: Task 2 for Touch
     sense: Touch
@@ -29,7 +30,7 @@ MonoBehaviour:
     sense: Taste
   - description: Task 2 for Taste
     sense: Taste
-  - description: Task 1 for Smell
+  - description: Go outside and smell a flower
     sense: Smell
-  - description: Task 2 for Smell
+  - description: Find a scent that reminds you of something and describe it
     sense: Smell
