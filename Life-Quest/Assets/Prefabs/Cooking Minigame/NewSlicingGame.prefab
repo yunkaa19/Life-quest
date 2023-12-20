@@ -720,6 +720,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1795811368475695268, guid: 60ca3fe0f98d1f344a37a7fafd17b758, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391401957869208394, guid: 60ca3fe0f98d1f344a37a7fafd17b758, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217811333353090731, guid: 60ca3fe0f98d1f344a37a7fafd17b758, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7309124664523524228, guid: 60ca3fe0f98d1f344a37a7fafd17b758, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.7593637
