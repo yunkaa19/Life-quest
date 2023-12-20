@@ -14,8 +14,8 @@ public class TaskData : ScriptableObject
 
     public Task[] tasks = new Task[10]
     {
-        new Task { description = "Task 1 for Sight", sense = "Sight" },
-        new Task { description = "Task 2 for Sight", sense = "Sight" },
+        new Task { description = "How many birds do you see if you look outside", sense = "Sight" },
+        new Task { description = "Walk to your fridge and choose an item to look at", sense = "Sight" },
 
         new Task { description = "Task 1 for Hearing", sense = "Hearing" },
         new Task { description = "Task 2 for Hearing", sense = "Hearing" },
