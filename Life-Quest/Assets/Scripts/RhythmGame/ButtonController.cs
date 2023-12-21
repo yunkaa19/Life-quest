@@ -24,6 +24,13 @@ public class ButtonController : MonoBehaviour
                 Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                 Collider2D buttonCollider = GetComponent<Collider2D>();
 
+                RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+
+                if (hit.collider != null && hit.collider.CompareTag("Note"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                }
+
                 if (buttonCollider == Physics2D.OverlapPoint(touchPosition))
                 {
                     theSR.sprite = pressedImage;
