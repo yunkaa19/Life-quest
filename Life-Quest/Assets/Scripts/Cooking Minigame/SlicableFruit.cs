@@ -39,12 +39,11 @@ public class SlicableFruit : MonoBehaviour
         OnTomatoSliced?.Invoke();
 
 
-        foreach (var seed in seeds)
-        {
-            seed.AssignRandomFlavor();
-            seed.gameObject.SetActive(true);
-        }
-        LogSeedFlavors();
+    foreach (var seed in seeds)
+    {
+        seed.EnableSeed(); // Enable the seed components
+    }
+    LogSeedFlavors();
 
     }
 
