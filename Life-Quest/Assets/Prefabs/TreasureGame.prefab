@@ -410,7 +410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798352827513672305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e57bcc6ca2f1dc84ea3bdde90413ae4f, type: 3}
   m_Name: 
@@ -420,6 +420,9 @@ MonoBehaviour:
   verticalPosition: 0
   verticalPositionStoring: 0
   verticalAbsolute: 0
+  alreadySpawned: 0
+  distanceToPlayer: 0
+  targetPlayer: {fileID: 7315386965572618947}
 --- !u!61 &2811049802681188942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1594,6 +1597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274e8fdb9fa570f47ad85605de707ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnTreasure: {fileID: 764745814154097772}
 --- !u!114 &3415475586197289616
 MonoBehaviour:
   m_ObjectHideFlags: 0

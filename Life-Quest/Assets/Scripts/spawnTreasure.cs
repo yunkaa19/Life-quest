@@ -9,16 +9,30 @@ public class spawnTreasure : MonoBehaviour
     public float verticalPosition;
     public float verticalPositionStoring;
     public float verticalAbsolute;
+    public int alreadySpawned = 0;
+
+    public float distanceToPlayer = 0;
+    public Transform targetPlayer;
     
     void Start()
     {
 
-        DeterminePosition();
         
     }
 
+    void Update()
+    {
+        if(alreadySpawned == 0)
+        {
+            DeterminePosition();
+            alreadySpawned = 1;
+        }
+    }
+
+
     void DeterminePosition()
     {
+                
         treasureDistance = Random.Range(20f,30f);
         horizontalPosition = Random.Range(-treasureDistance, treasureDistance);
         verticalPositionStoring = treasureDistance*treasureDistance - horizontalPosition*horizontalPosition;
@@ -34,9 +48,13 @@ public class spawnTreasure : MonoBehaviour
             transform.position = new Vector3(horizontalPosition,verticalPosition,transform.position.z);
         }
 
-        
-        
+        distanceToPlayer = Vector3.Distance(targetPlayer.position, transform.position);
 
+        if(distanceToPlayer <= 5f)
+        {
+            DeterminePosition();
+            return;
+        }
         
     }
 

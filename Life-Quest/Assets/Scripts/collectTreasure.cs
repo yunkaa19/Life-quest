@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class collectTreasure : MonoBehaviour
 {
+    public spawnTreasure spawnTreasure;
+    public int treasuresCollected = 0;
+    
+
+
+    void Update()
+    {
+        if(treasuresCollected == 3)
+        {
+            //do a win
+        }
+    }
+
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("hit a " + collision.gameObject.tag);
         Handheld.Vibrate();
         if(collision.gameObject.tag == "Treasure")
         {
-            Destroy(collision.gameObject);
             Debug.Log("You found it");
+            treasuresCollected ++;
+            spawnTreasure.alreadySpawned = 0;
         }
     }
+
 }
