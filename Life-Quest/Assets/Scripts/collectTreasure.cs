@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class collectTreasure : MonoBehaviour
 {
     public spawnTreasure spawnTreasure;
     public int treasuresCollected = 0;
-    
+    int minigamesPlayed;
 
+    void Start()
+    {
+        minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+    }
 
     void Update()
     {
         if(treasuresCollected == 3)
         {
-            //do a win
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScene");
         }
     }
 
