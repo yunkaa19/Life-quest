@@ -8,16 +8,34 @@ using UnityEngine.Serialization;
 
 public class StackingManager : MonoBehaviour
 {
+
+
+    #region Variables
+    /// <summary>
+    /// The hashset is used to keep track of which objects are touching.
+    ///</summary>
     private HashSet<(GameObject, GameObject)> touchingPairs = new HashSet<(GameObject, GameObject)>();
-    public bool isBalancing = false;
     
+    /// <summary>
+    /// The set of these variables are used to keep track of the balancing state.
+    /// </summary>
+    public bool isBalancing = false;
+    private float highestYAtStart;
+    private const float YChangeThreshold = 2f;
+    
+
     [Header("Balancing Countdown")]
     public TMP_Text balancingCountdownText;
     public float getReadyDuration = 2f;
     public float balancingCountdown = 5f;
+    
+    
+    
+    #endregion
+    
+    #region Unity Methods
     private void Start()
     {
-        Input.gyro.enabled = false;
         balancingCountdownText.text = "";
     }
 
@@ -25,15 +43,22 @@ public class StackingManager : MonoBehaviour
     {
         if (isBalancing)
         {
-            ApplyGyroForces();
+            ApplyForces();
         }
     }
+    #endregion
 
+    #region Custom Methods
 
-    public void AddCollisionPair(GameObject hex1, GameObject hex2)
+    
+
+    /// <summary>
+    ///  Adds a pair of colliding GameObjects to the touchingPairs set and checks if the balancing phase should start.
+    /// </summary>
+    public void AddCollisionPair(GameObject obj1, GameObject obj2)
     {
         // Create a tuple of the two hexagons, sorted by their instance IDs to avoid duplicates
-        var pair = (hex1.GetInstanceID() < hex2.GetInstanceID()) ? (hex1, hex2) : (hex2, hex1);
+        var pair = (obj1.GetInstanceID() < obj2.GetInstanceID()) ? (hex1: obj1, hex2: obj2) : (hex2: obj2, hex1: obj1);
         // Add the pair to the set if it's not already there
         if (!touchingPairs.Contains(pair))
         {
@@ -42,12 +67,20 @@ public class StackingManager : MonoBehaviour
         }
     }
 
-    public void RemoveCollisionPair(GameObject hex1, GameObject hex2)
+    
+    /// <summary>
+    ///  Removes a pair of GameObjects from the touchingPairs set when they are no longer colliding.
+    /// </summary>
+    public void RemoveCollisionPair(GameObject obj1, GameObject obj2)
     {
-        var pair = (hex1.GetInstanceID() < hex2.GetInstanceID()) ? (hex1, hex2) : (hex2, hex1);
+        var pair = (obj1.GetInstanceID() < obj2.GetInstanceID()) ? (hex1: obj1, hex2: obj2) : (hex2: obj2, hex1: obj1);
         touchingPairs.Remove(pair);
     }
 
+    
+    /// <summary>
+    /// Checks if conditions are met to start the balancing phase (e.g., when a certain number of GameObjects are touching).
+    /// </summary>
     private void CheckForBalancingStart()
     {
         // Start balancing if 4 hexagons are touching and not already balancing
@@ -59,18 +92,21 @@ public class StackingManager : MonoBehaviour
     }
 
     
-    private void ApplyGyroForces()
+    /// <summary>
+    /// Applies forces based on device's tilt (using acceleration) to all GameObjects in touchingPairs, influencing their movement.
+    /// </summary>
+    private void ApplyForces()
     {
-        Quaternion gyroAttitude = Input.gyro.attitude;
-        gyroAttitude.z = -gyroAttitude.z; // Invert the z-axis if needed
-        gyroAttitude.w = -gyroAttitude.w; // Invert the w-axis if needed
+        // Get the device's acceleration vector
+        Vector3 acceleration = Input.acceleration;
 
-        // Convert to a rotation in 2D space
-        Vector2 forceDirection = new Vector2(gyroAttitude.x, gyroAttitude.y);
+        // Assuming that the device is held upright, x will represent the tilt from left to right
+        float forceMultiplier = 100.0f; // Adjust this value as needed for testing
+        Vector2 forceDirection = new Vector2(acceleration.x, 0); // We only care about the x-axis for left/right tilt
 
         // Scale up the force for testing purposes
-        float forceMultiplier = 10.0f; // Adjust this value as needed for testing
         Vector2 scaledForceDirection = forceDirection * forceMultiplier;
+
 
         // Apply scaled forces to all hexagons
         foreach (var pair in touchingPairs)
@@ -84,12 +120,63 @@ public class StackingManager : MonoBehaviour
     }
 
     
+    /// <summary>
+    /// Calculates and returns the highest Y position among all GameObjects in touchingPairs.
+    /// </summary>
+    private float GetHighestYPosition()
+    {
+        float highestY = float.MinValue;
+        foreach (var pair in touchingPairs)
+        {
+            highestY = Mathf.Max(highestY, pair.Item1.transform.position.y);
+            highestY = Mathf.Max(highestY, pair.Item2.transform.position.y);
+        }
+        return highestY;
+    }
     
+    /// <summary>
+    /// Updates the UI text to display the remaining time for balancing.
+    /// </summary>
+    private void UpdateCountdownDisplay(float time)
+    {
+        balancingCountdownText.text = "Balance for: " + Mathf.CeilToInt(time).ToString()+ "s";
+    }
+
+    /// <summary>
+    ///  Checks if the balancing criteria are met (based on Y position changes and number of touching pairs) and determines success or failure.
+    /// </summary>
+    private void CheckBalance()
+    {
+        
+        if (Mathf.Abs(GetHighestYPosition() - highestYAtStart) > YChangeThreshold)
+        {
+            // Failure logic here
+        }
+        else if (touchingPairs.Count >= 3)
+        {
+            // Success logic here
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            // Increment minigamesPlayed after the game is completed
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
+        }
+        else
+        {
+            // Failure logic here
+        }
+        
+        isBalancing = false;
+    }
+    
+    
+    /// <summary>
+    /// A coroutine that manages the balancing countdown, updates the display, and performs a final balance check at the end.
+    /// </summary>
     private IEnumerator BalancingRoutine()
     {
-        // Enable the gyroscope
-        Input.gyro.enabled = true;
-
+        highestYAtStart = GetHighestYPosition();
+        
         // Give the player time to get ready
         yield return new WaitForSeconds(getReadyDuration);
 
@@ -97,6 +184,16 @@ public class StackingManager : MonoBehaviour
         float countdown = balancingCountdown;
         while (countdown > 0)
         {
+            if (touchingPairs.Count < 3)
+            {
+                // If the hexagons are no longer touching, stop the countdown
+                UpdateCountdownDisplay(0);
+                isBalancing = false;
+                balancingCountdownText.text = "";
+                break;
+            }
+
+            
             UpdateCountdownDisplay(countdown);
             yield return new WaitForSeconds(1f);
             countdown--;
@@ -109,31 +206,5 @@ public class StackingManager : MonoBehaviour
         // Final check if the hexagons are still balanced
         CheckBalance();
     }
-    
-    private void UpdateCountdownDisplay(float time)
-    {
-        balancingCountdownText.text = "Balance for: " + Mathf.CeilToInt(time).ToString()+ "s";
-    }
-
-    private void CheckBalance()
-    {
-        if (touchingPairs.Count >= 3)
-        {
-            // Success logic here
-            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
-            // Increment minigamesPlayed after the game is completed
-            minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
-            SceneManager.LoadScene("CompletionScreen");
-
-            Debug.Log("Balanced Successfully!");
-        }
-        else
-        {
-            // Failure logic here
-            Debug.Log("Failed to Balance!");
-        }
-        isBalancing = false;
-        Input.gyro.enabled = false;
-    }
+    #endregion
 }

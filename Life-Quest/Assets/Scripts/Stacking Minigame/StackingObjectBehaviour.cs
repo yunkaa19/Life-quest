@@ -19,11 +19,19 @@ public class StackingObjectBehaviour : MonoBehaviour
         zCoordinate = mainCamera.WorldToScreenPoint(gameObject.transform.position).z;
         offset = gameObject.transform.position - GetMouseWorldPos();
     }
+    
+    void OnMouseUp()
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 0.75f;
+    }
 
     void OnMouseDrag()
     {
         Vector3 newPosition = new Vector3(GetMouseWorldPos().x + offset.x, GetMouseWorldPos().y + offset.y, transform.position.z);
+        
         GetComponent<Rigidbody2D>().MovePosition(newPosition);
+        
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
     }
 
     private Vector3 GetMouseWorldPos()
