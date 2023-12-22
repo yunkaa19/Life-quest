@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Puzzle
   - BalancingObject
+  - Treasure
+  - Ripple
   layers:
   - Default
   - TransparentFX
