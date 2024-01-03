@@ -13,10 +13,15 @@ public class GameManager : MonoBehaviour
     private float musicStartTime;
     private bool beatScrollerStarted = false;
 
+    public GameObject touchToStartImage; 
+    public GameObject infoImage; 
+
     void Start()
     {
         instance = this;
-        theMusic.Stop(); // Ensure the music is initially stopped
+        theMusic.Stop(); 
+        touchToStartImage.SetActive(true);
+        infoImage.SetActive(false);
     }
 
     void Update()
@@ -27,18 +32,21 @@ public class GameManager : MonoBehaviour
             {
                 musicStarted = true;
                 PlayDelayedMusic();
-                musicStartTime = Time.time; // Record music start time
+                musicStartTime = Time.time; 
+                touchToStartImage.SetActive(false);
+                infoImage.SetActive(true);
             }
         }
         else if (musicStarted && !beatScrollerStarted && Time.time - musicStartTime > delayBeforeStart)
         {
             StartBeatScroller();
+            infoImage.SetActive(false);
         }
     }
 
     void PlayDelayedMusic()
     {
-        theMusic.PlayDelayed(0); // Start playing the music immediately
+        theMusic.PlayDelayed(0);
     }
 
     void StartBeatScroller()

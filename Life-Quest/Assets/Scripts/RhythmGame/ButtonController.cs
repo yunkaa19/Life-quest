@@ -37,6 +37,17 @@ public class ButtonController : MonoBehaviour
                     isPressed = true;
                 }
             }
+            else if (touch.phase == TouchPhase.Moved) 
+            {
+                Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                Collider2D buttonCollider = GetComponent<Collider2D>();
+
+                if (buttonCollider != Physics2D.OverlapPoint(touchPosition))
+                {
+                    theSR.sprite = defaultImage;
+                    isPressed = false;
+                }
+            }
             else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && isPressed)
             {
                 Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
