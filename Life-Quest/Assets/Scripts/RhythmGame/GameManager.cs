@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject touchToStartImage; 
     public GameObject infoImage; 
+    public int amountOfNotes; 
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         theMusic.Stop(); 
         touchToStartImage.SetActive(true);
         infoImage.SetActive(false);
+        amountOfNotes = GameObject.FindGameObjectsWithTag("Note").Length; 
+        Debug.Log(amountOfNotes);
     }
 
     void Update()
