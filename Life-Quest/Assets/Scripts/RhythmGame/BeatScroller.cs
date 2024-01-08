@@ -3,9 +3,8 @@ using UnityEngine;
 public class BeatScroller : MonoBehaviour
 {
     public float beatTempo;
+
     public bool hasStarted;
-    private float startDelay = 10f; 
-    private float delayTimer = 0f;
 
     void Start()
     {
@@ -19,12 +18,19 @@ public class BeatScroller : MonoBehaviour
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 hasStarted = true;
-                delayTimer = Time.time; 
             }
         }
-        else if (Time.time - delayTimer > startDelay)
+        else
         {
+            // Assuming you want the scroll based on time
             transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
+
+            // Alternatively, for touch-based scroll:
+            // if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            // {
+            //     Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            //     transform.position -= new Vector3(0f, touchDeltaPosition.y * Time.deltaTime, 0f);
+            // }
         }
     }
 }

@@ -7,6 +7,7 @@ public class FruitHitbox : MonoBehaviour
     [SerializeField] private SlicableFruit slicableFruit;
     [SerializeField] private GameObject sliced;
     private bool isTouching = false;
+    private bool isSliced = false; // To check if the fruit is already sliced
 
     void Update()
     {
@@ -45,6 +46,14 @@ public class FruitHitbox : MonoBehaviour
                     }
                     break;
             }
+
+
+        // if (isSliced)
+        // {
+        //     // Drop the fruit downwards
+        //     transform.Translate(Vector3.down * dropSpeed * Time.deltaTime);
+        // }
+
         }
     }
 
@@ -70,11 +79,18 @@ public class FruitHitbox : MonoBehaviour
         if(slicableFruit.GetSlicedObject() == null){
             slicableFruit.SetSlicedObject(sliced);
             slicableFruit.Slice();
-            isTouching = false; // Reset the flag
+            
+            isSliced = true; // Mark the fruit as sliced
+
+
+            // Disable or destroy the Box Collider 2D components
+            var boxColliders = GetComponents<BoxCollider2D>();
+            foreach (var collider in boxColliders)
+            {
+                collider.enabled = false; // To disable
+                // Destroy(collider); // Uncomment to destroy
+            }
         }
 
-
-
-        // Add your specific actions or code here
     }
 }

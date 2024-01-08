@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle-PF
       objectReference: {fileID: 0}
+    - target: {fileID: 3840002040626911695, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840002040626911695, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 4555237963069793589, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6129112
