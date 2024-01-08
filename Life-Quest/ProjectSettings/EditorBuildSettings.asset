@@ -5,33 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Starting Screen.unity
     guid: c42e612b1273e904e9007b1bbb3a3170
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 2cdeb5cf35f13744288905cc067c2b70
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/YellowFeeling.unity
     guid: 024f4e87897600940bfaf58d13dfc103
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: e4fcd8b2cad63b841a5c90bc0e19500d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/BlueSeeing.unity
     guid: 17e5d860c8388d44a9c9f9479b57db3e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PinkTasting.unity
     guid: 5d9e756d7a8b3e849a48073e8cb7e116
-<<<<<<< HEAD
-=======
-  - enabled: 0
-    path: Assets/Scenes/BellyRubMini.unity
-    guid: 8e3b4341d8a33784abaa1e090109f1e9
-  - enabled: 1
-    path: Assets/Scenes/DEV-SCENES/HeatherScene.unity
-    guid: 6c1e1cdf08aeb1d4fb8bed68ff74da38
->>>>>>> Heather_Rhythm_Game
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: faba1dd2a8122d6449d6b14bf4a7d0b8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
