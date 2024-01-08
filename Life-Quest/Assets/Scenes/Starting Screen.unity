@@ -232,18 +232,6 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3277503070702667643, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 3277503070702667643, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7647059
-      objectReference: {fileID: 0}
-    - target: {fileID: 3277503070702667643, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
-      propertyPath: m_Color.r
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 3277503070702667643, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -369,11 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9105568871652673732, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 52
+      value: 48.7191
       objectReference: {fileID: 0}
     - target: {fileID: 9105568871652673732, guid: 00ad76598cfdea04ba3005559595bc32, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -765
+      value: -746.9658
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
