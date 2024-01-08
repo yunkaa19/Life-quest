@@ -215,6 +215,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3544898048976421392, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 424.6931
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544898048976421392, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544898048976421392, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -245.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4019261579570829649, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
       propertyPath: fadeCanvasGroup
       value: 
@@ -227,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4800999179219447447, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b5635baa6b76fd24daf28ce19eb277f8, type: 3}
     - target: {fileID: 5255023714003383576, guid: 8a686f8ca1c22de4891996ad9b0db7bd, type: 3}
       propertyPath: m_PixelPerfect
       value: 0

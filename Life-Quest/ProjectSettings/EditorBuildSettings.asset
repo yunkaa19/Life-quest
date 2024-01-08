@@ -27,8 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/BellyRubMini.unity
     guid: 8e3b4341d8a33784abaa1e090109f1e9
   - enabled: 1
-    path: Assets/Scenes/DEV-SCENES/HeatherScene.unity
-    guid: 6c1e1cdf08aeb1d4fb8bed68ff74da38
+    path: Assets/Scenes/DEV-SCENES/JoeryScene.unity
+    guid: 7bdf80882ea7c53408b2a761a620854f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: faba1dd2a8122d6449d6b14bf4a7d0b8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
