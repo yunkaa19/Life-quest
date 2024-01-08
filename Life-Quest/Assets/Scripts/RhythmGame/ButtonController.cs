@@ -28,7 +28,11 @@ public class ButtonController : MonoBehaviour
 
                 if (hit.collider != null && hit.collider.CompareTag("Note"))
                 {
-                    hit.collider.gameObject.SetActive(false);
+                    // Check if the note is colliding with the activator
+                    if (IsCollidingWithActivator(hit.collider.gameObject))
+                    {
+                        hit.collider.gameObject.SetActive(false);
+                    }
                 }
 
                 if (buttonCollider == Physics2D.OverlapPoint(touchPosition))
@@ -37,7 +41,7 @@ public class ButtonController : MonoBehaviour
                     isPressed = true;
                 }
             }
-            else if (touch.phase == TouchPhase.Moved) 
+            else if (touch.phase == TouchPhase.Moved)
             {
                 Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                 Collider2D buttonCollider = GetComponent<Collider2D>();
@@ -60,5 +64,18 @@ public class ButtonController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsCollidingWithActivator(GameObject note)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(note.transform.position, 0.1f); // Adjust the radius as needed
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Activator"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
