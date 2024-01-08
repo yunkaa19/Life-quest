@@ -8,6 +8,7 @@ public class PiecesScript : MonoBehaviour
     private Vector2 RightPosition;
     public bool InRightPosition;
     public bool Selected;
+    
     void Start()
     {
         RightPosition = transform.position;
