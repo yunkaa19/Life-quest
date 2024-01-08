@@ -25,10 +25,11 @@ public class LoadingVisualizer : MonoBehaviour
 
     IEnumerator LoadTargetScene()
     {
+        int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(targetScene);
         asyncLoad.allowSceneActivation = false;
 
-        float targetProgress = 1.0f; 
+        float targetProgress = 1.0f;
         float delayAfterComplete = 1.0f;
 
         while (loadingProgress < targetProgress)
@@ -37,15 +38,22 @@ public class LoadingVisualizer : MonoBehaviour
             symbolImage.color = Color.Lerp(startColor, endColor, progress);
 
             int percentage = Mathf.RoundToInt(loadingProgress * 100f);
-            progressText.text = percentage + "%";
+            progressText.text = "Loading... " + percentage + "%";
 
             loadingProgress += Time.deltaTime * loadingSpeed;
 
             yield return null;
         }
 
-
         yield return new WaitForSeconds(delayAfterComplete);
         asyncLoad.allowSceneActivation = true;
+
+        if (PlayerPrefs.GetInt("PlayBellyRub", 0) == 1)
+        {
+            PlayerPrefs.SetInt("PlayBellyRub", 0); // Reset the flag
+            SceneManager.LoadScene("BellyRubMini");
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+        }
     }
 }

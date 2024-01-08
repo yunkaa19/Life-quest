@@ -44,9 +44,10 @@ public class AreaSelector : MonoBehaviour
     {
         sceneMapping.Add("GREENPillar", "Main Menu");
         sceneMapping.Add("YELLOWPillar", "YellowFeeling");
-        sceneMapping.Add("REDPillar", "Main Menu");
+        sceneMapping.Add("REDPillar", "RedHearing");
         sceneMapping.Add("BLUEPillar", "BlueSeeing");
         sceneMapping.Add("PINKPillar", "PinkTasting");
+        sceneMapping.Add("GREYPillar", "NeutralMini");
     }
 
     private void OnPointerDown(PointerEventData data, GameObject clickedSprite)
@@ -76,6 +77,19 @@ public class AreaSelector : MonoBehaviour
     private void LoadLoadingScene(string targetScene)
     {
         PlayerPrefs.SetString("TargetScene", targetScene);
+        int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+
+        if(minigamesPlayed >= 4) { PlayerPrefs.SetInt("MinigamesPlayed", 0); }
+        Debug.Log("minigames played" + minigamesPlayed.ToString());
+        if (minigamesPlayed == 1)
+        {
+            PlayerPrefs.SetInt("PlayBellyRub", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("PlayBellyRub", 0); 
+        }
+
         SceneManager.LoadScene(loadingSceneName);
     }
 
