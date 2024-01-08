@@ -5,6 +5,8 @@ using UnityEngine;
 public class GrowCircle : MonoBehaviour
 {
     public Vector3 scaleChange;
+    public float distanceToPlayer;
+    float growthSpeed;
 
     void Start()
     {
@@ -13,8 +15,12 @@ public class GrowCircle : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        this.transform.localScale += scaleChange * Time.deltaTime;
+    {     
+        distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindWithTag("Player").transform.position);
+
+        growthSpeed = 0.1f * (float)distanceToPlayer;
+
+        this.transform.localScale += scaleChange * Time.deltaTime * growthSpeed;
 
         if(this.transform.localScale.x > 30f)
         {
