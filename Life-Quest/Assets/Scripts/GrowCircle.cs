@@ -8,7 +8,7 @@ public class GrowCircle : MonoBehaviour
 
     void Start()
     {
-        scaleChange = new Vector3(0.75f, 0.75f, 0.75f);
+        scaleChange = new Vector3(1.3f, 1.3f, 0f);
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class GrowCircle : MonoBehaviour
     {
         this.transform.localScale += scaleChange * Time.deltaTime;
 
-        if(this.transform.localScale.x > 15f)
+        if(this.transform.localScale.x > 30f)
         {
             Destroy(this.gameObject);
         }

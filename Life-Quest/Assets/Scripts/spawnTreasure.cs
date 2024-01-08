@@ -41,11 +41,11 @@ public class spawnTreasure : MonoBehaviour
 
         if(verticalAbsolute <= 0)
         {
-            transform.position = new Vector3(horizontalPosition,-verticalPosition,transform.position.z);
+            transform.localPosition = new Vector3(horizontalPosition,-verticalPosition,transform.position.z);
         }
         if(verticalAbsolute > 0)
         {
-            transform.position = new Vector3(horizontalPosition,verticalPosition,transform.position.z);
+            transform.localPosition = new Vector3(horizontalPosition,verticalPosition,transform.position.z);
         }
 
         distanceToPlayer = Vector3.Distance(targetPlayer.position, transform.position);

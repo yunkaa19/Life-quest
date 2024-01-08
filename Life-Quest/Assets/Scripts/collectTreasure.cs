@@ -20,7 +20,7 @@ public class collectTreasure : MonoBehaviour
         {
             minigamesPlayed++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
-            SceneManager.LoadScene("CompletionScene");
+            SceneManager.LoadScene("CompletionScreen");
         }
     }
 
