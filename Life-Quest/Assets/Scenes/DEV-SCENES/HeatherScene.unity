@@ -175,8 +175,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmMinigamePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8918708931134827678, guid: 9a54829b90446f547965f757e822a80b, type: 3}
+      propertyPath: theMusic
+      value: 
+      objectReference: {fileID: 2012374554}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 900142736266878787, guid: 9a54829b90446f547965f757e822a80b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a54829b90446f547965f757e822a80b, type: 3}
