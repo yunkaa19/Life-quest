@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream
+--- !u!4 &534938351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5269137091964624053, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+  m_PrefabInstance: {fileID: 798687924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &790550116
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +197,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &798687924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,10 +210,6 @@ PrefabInstance:
     - target: {fileID: 4329943048827260143, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: m_Name
       value: TreasureGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7315386965572618947, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8572601237144629508, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: m_Pivot.x
@@ -287,11 +291,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8803250099524652102, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+<<<<<<< Updated upstream
 --- !u!1 &870907092
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,11 +406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b82ddbce6523f14bba8ad48b896326b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 534938351}
+=======
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 870907095}
   - {fileID: 798687924}
-  - {fileID: 790550119}

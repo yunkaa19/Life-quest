@@ -8,6 +8,7 @@ public class collectTreasure : MonoBehaviour
     public spawnTreasure spawnTreasure;
     public int treasuresCollected = 0;
     int minigamesPlayed;
+    
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class collectTreasure : MonoBehaviour
         {
             minigamesPlayed++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
-            SceneManager.LoadScene("CompletionScene");
+            SceneManager.LoadScene("CompletionScreen");
         }
     }
 
@@ -32,6 +33,14 @@ public class collectTreasure : MonoBehaviour
         if(collision.gameObject.tag == "Treasure")
         {
             Debug.Log("You found it");
+            GameObject[] ripples = GameObject.FindGameObjectsWithTag("Ripple");
+            foreach(GameObject rippleObject in ripples)
+            {
+                Destroy(rippleObject);
+            }
+
+
+
             treasuresCollected ++;
             spawnTreasure.alreadySpawned = 0;
         }
