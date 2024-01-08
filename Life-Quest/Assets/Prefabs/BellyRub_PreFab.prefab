@@ -935,7 +935,6 @@ GameObject:
   m_Component:
   - component: {fileID: 39736484498958011}
   - component: {fileID: 1215319569863715211}
-  - component: {fileID: 4712599295632423066}
   m_Layer: 0
   m_Name: BellyRubber
   m_TagString: Untagged
@@ -972,23 +971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 4970536755123577012}
   startButton: {fileID: 5324860492108691574}
-  advancedVibration: {fileID: 4712599295632423066}
-  RubbingFastThreshold: 1.5
-  RubbingSlowThreshold: 0.4
---- !u!114 &4712599295632423066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5971834728202218625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346835f8c7bf66f4b9b4871a993c58f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pattern: 00000000000000006400000000000000e8030000000000002c01000000000000
-  repeat: -1
 --- !u!1 &6133879489515239178
 GameObject:
   m_ObjectHideFlags: 0

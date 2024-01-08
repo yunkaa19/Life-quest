@@ -5,9 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Puzzle
-  - BalancingObject
-  - Treasure
-  - Ripple
+  - Activator
+  - Note
   layers:
   - Default
   - TransparentFX

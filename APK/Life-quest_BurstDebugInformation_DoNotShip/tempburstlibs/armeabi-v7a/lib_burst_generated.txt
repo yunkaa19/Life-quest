@@ -10,7 +10,6 @@ Library: S:\GIT\tweekrachtproject\Life-Quest\Temp\BurstOutput\tempburstlibs\arme
 --assembly-defines=UnityEngine;
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.2D.IK.Runtime;
---assembly-defines=Unity.Postprocessing.Runtime;
 --assembly-defines=Unity.VisualScripting.Flow;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.AdaptivePerformance.Google.Android;
@@ -30,7 +29,6 @@ Library: S:\GIT\tweekrachtproject\Life-Quest\Temp\BurstOutput\tempburstlibs\arme
 --assembly-defines=Unity.Timeline;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.VisualScripting.State;
---assembly-defines=Cinemachine;
 --assembly-defines=Unity.Notifications.Android;
 --assembly-defines=Unity.Collections.LowLevel.ILSupport;
 --assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
