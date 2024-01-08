@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BellyRubGame : MonoBehaviour
@@ -10,7 +11,7 @@ public class BellyRubGame : MonoBehaviour
     /// Holds the variables for gyroscope control, game state flags, timers,
     /// and UI elements for the BellyRub game.
     /// </summary>
-     
+
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
@@ -18,12 +19,15 @@ public class BellyRubGame : MonoBehaviour
     private Coroutine countdownCoroutine;
 
     public TMP_Text countdownText;
-    
+
     //fallback for non-Android or when vibration is not supported
     public Button startButton;
     private bool manualRubbing = false;
     
-    
+    [Header("Advanced Vibration")]
+    public AdvancedVibration advancedVibration;        
+    public float RubbingFastThreshold = 1.5f;
+    public float RubbingSlowThreshold = 0.4f;
     #endregion
 
     #region Unity Methods
@@ -34,15 +38,15 @@ public class BellyRubGame : MonoBehaviour
     void Start()
     {
         gyroEnabled = EnableGyro();
-        if(gyroEnabled == true)
-        { 
+        if (gyroEnabled == true)
+        {
             Destroy(startButton.gameObject);
         }
         Input.gyro.enabled = true;
         countdownText.text = "30";
     }
 
-    
+
     /// <summary>
     /// Every frame the gyroscope status gets checked and updates
     /// the rubbing timer. Responds to real-time changes and player interactions.
@@ -78,7 +82,7 @@ public class BellyRubGame : MonoBehaviour
         {
             gyro = Input.gyro;
             gyro.enabled = true;
-           
+
             return true;
         }
         return false;
@@ -90,14 +94,21 @@ public class BellyRubGame : MonoBehaviour
     private void DetectRubbingMotion()
     {
         Vector3 acceleration = Input.acceleration;
-
-        // Placeholder logic, To be improved
+        Vector3 gyroRotationRate = Input.gyro.rotationRateUnbiased;
+        
+        // Calculate the speed of the rubbing motion
+        //float rubbingSpeed = Mathf.Sqrt(Mathf.Pow(acceleration.x, 2) + Mathf.Pow(acceleration.y, 2) + Mathf.Pow(acceleration.z, 2));
+        
+        // Update the vibration pattern based on the speed
+        //UpdateVibrationPattern(rubbingSpeed);
+        
+        //if the device is moving in a rubbing motion and the player is not already rubbing, start the countdown timer
         if (Mathf.Abs(acceleration.x) > 0.5f && Mathf.Abs(acceleration.y) > 0.5f)
         {
             if (!isRubbing)
             {
                 isRubbing = true;
-                Handheld.Vibrate();
+                advancedVibration.Vibrate();
                 if (countdownCoroutine == null)
                 {
                     countdownCoroutine = StartCoroutine(CountdownTimer());
@@ -114,7 +125,30 @@ public class BellyRubGame : MonoBehaviour
             }
         }
     }
-
+    
+    
+    //support for advanced vibration
+    private void UpdateVibrationPattern(float rubbingSpeed)
+    {
+        // Adjust the vibration pattern based on the speed
+        if (rubbingSpeed > RubbingFastThreshold)
+        {
+            // Slow vibration for fast rubbing
+            advancedVibration.pattern = new long[] { 0, 1000, 2000, 500 };
+        }
+        else if (rubbingSpeed < RubbingSlowThreshold)
+        {
+            // Fast vibration for slow rubbing
+            advancedVibration.pattern = new long[] { 0, 100, 500, 100 };
+        }
+        else
+        {
+            // No vibration for perfect speed
+            advancedVibration.pattern = new long[] { 0 };
+        }
+    }
+    
+    
 
     public void StartManualRubbing()
     {
@@ -123,13 +157,13 @@ public class BellyRubGame : MonoBehaviour
         StartCoroutine(CountdownWithoutGyro());
     }
 
-    
+
     /// <summary>
     /// Manages the countdown timer for the game. As the exercise is to be done for 30 seconds, the timer is set to 30 seconds.
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = 5; // 30 seconds countdown
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)
@@ -153,12 +187,18 @@ public class BellyRubGame : MonoBehaviour
             isRubbing = false;
             rubbingTimer = 0f;
             countdownCoroutine = null;
+
+            LoadTargetScene();
         }
     }
 
+    private void LoadTargetScene()
+    {
+        string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
+        SceneManager.LoadScene(targetScene);
 
-    
-    
+    }
+
     /// <summary>
     /// Resets the countdown and the game's rubbing state, affecting the game's state.
     /// </summary>
@@ -179,7 +219,7 @@ public class BellyRubGame : MonoBehaviour
         // Reset the UI
         countdownText.text = "30";
     }
-    
+
     /// <summary>
     /// This Coroutine is used as a fallback for when gyroscope is not available.
     /// </summary>
@@ -187,7 +227,7 @@ public class BellyRubGame : MonoBehaviour
     {
         int timeLeft = 30; // 30 seconds countdown
         countdownText.text = timeLeft.ToString() + "s";
-        
+
         while (timeLeft > 0)
         {
             yield return new WaitForSeconds(1f);

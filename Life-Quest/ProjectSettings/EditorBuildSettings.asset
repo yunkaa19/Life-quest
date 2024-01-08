@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PinkTasting.unity
     guid: 5d9e756d7a8b3e849a48073e8cb7e116
+  - enabled: 1
+    path: Assets/Scenes/BellyRubMini.unity
+    guid: 8e3b4341d8a33784abaa1e090109f1e9
+  - enabled: 1
+    path: Assets/Scenes/CompletionScreen.unity
+    guid: e91b466820e71774d9e8005c61bf72cb
+  - enabled: 1
+    path: Assets/Scenes/NeutralMini.unity
+    guid: 1023b1a2580d8ed419a16afc5960434d
+  - enabled: 1
+    path: Assets/Scenes/RedHearing.unity
+    guid: be30dc4e7436ab1458d643896352403f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: faba1dd2a8122d6449d6b14bf4a7d0b8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1d5b6ad1c846df543b51a0bd7a9c9813, type: 2}
