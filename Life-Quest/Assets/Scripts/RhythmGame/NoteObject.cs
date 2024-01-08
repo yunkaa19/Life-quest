@@ -5,21 +5,41 @@ public class NoteObject : MonoBehaviour
     public bool canBePressed;
     public KeyCode keyToPress;
 
+    private GameManager gameManager;
+
     void Start()
     {
-
+        gameManager = GameManager.instance;
+        canBePressed = false; 
     }
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (transform.position.y <= -3.5f)
         {
-            if (canBePressed)
+            gameObject.SetActive(false);
+            gameManager.NoteDeactivated(); 
+        }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && canBePressed)
             {
-                gameObject.SetActive(false);
+                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+                RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
+                gameManager.NoteDeactivated(); 
+                
+                if (hit.collider != null && hit.collider.gameObject == gameObject)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

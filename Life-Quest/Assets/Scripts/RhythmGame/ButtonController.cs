@@ -7,10 +7,12 @@ public class ButtonController : MonoBehaviour
     public Sprite pressedImage;
 
     private bool isPressed = false;
+    private GameManager gameManager;
 
     void Start()
     {
         theSR = GetComponent<SpriteRenderer>();
+        gameManager = GameManager.instance;
     }
 
     void Update()
@@ -28,10 +30,10 @@ public class ButtonController : MonoBehaviour
 
                 if (hit.collider != null && hit.collider.CompareTag("Note"))
                 {
-                    // Check if the note is colliding with the activator
                     if (IsCollidingWithActivator(hit.collider.gameObject))
                     {
                         hit.collider.gameObject.SetActive(false);
+                        gameManager.NoteDeactivated();
                     }
                 }
 
@@ -68,7 +70,7 @@ public class ButtonController : MonoBehaviour
 
     private bool IsCollidingWithActivator(GameObject note)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(note.transform.position, 0.1f); // Adjust the radius as needed
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(note.transform.position, 0.1f); 
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Activator"))
