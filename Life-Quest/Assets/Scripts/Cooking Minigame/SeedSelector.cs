@@ -4,50 +4,77 @@ using UnityEngine;
 
 public class SeedSelector : MonoBehaviour
 {
-    private List<Seed> bitterSeeds = new List<Seed>();
-    private int totalBitterSeeds = 0;
-    private int bitterSeedsClicked = 0;
 
-    
+    private List<Seed> bitterSeeds = new List<Seed>();
+    private List<Seed> saltySeeds = new List<Seed>();
+    private List<Seed> savorySeeds = new List<Seed>();
+    private List<Seed> sourSeeds = new List<Seed>();
+    private List<Seed> sweetSeeds = new List<Seed>();
+
+
 
 private void Start()
 {
-    Seed[] seeds = FindObjectsOfType<Seed>();
 
-    foreach (var seed in seeds)
-    {
-        Debug.Log("Seed flavor: " + seed.CurrentFlavor); // Debugging line
-        if (seed.IsBitter)
+    
+        Seed[] seeds = FindObjectsOfType<Seed>();
+
+        foreach (var seed in seeds)
         {
-            bitterSeeds.Add(seed);
-            totalBitterSeeds++;
+            if (seed.IsBitter) bitterSeeds.Add(seed);
+            if (seed.IsSalty) saltySeeds.Add(seed);
+            if (seed.IsSavory) savorySeeds.Add(seed);
+            if (seed.IsSour) sourSeeds.Add(seed);
+            if (seed.IsSweet) sweetSeeds.Add(seed);
         }
-    }
 
-    Debug.Log("Total bitter seeds: " + totalBitterSeeds); // Debugging line
 }
 
     private void Update()
     {
-        bitterSeedsClicked = 0; // Reset the count each frame
 
-        foreach (var seed in bitterSeeds)
+
+        if (CheckSeeds(bitterSeeds))
         {
-            // Check if the bitter seed has a Dynamic Rigidbody
+            Seed.EnableDrop(Seed.SeedFlavor.Salty); // Allow salty seeds to drop
+        }
+        if (CheckSeeds(saltySeeds))
+        {
+            Seed.EnableDrop(Seed.SeedFlavor.Savory); // Allow savory seeds to drop
+        }
+        if (CheckSeeds(savorySeeds))
+        {
+            Seed.EnableDrop(Seed.SeedFlavor.Sour); // Allow sour seeds to drop
+        }
+        if (CheckSeeds(sourSeeds))
+        {
+            Seed.EnableDrop(Seed.SeedFlavor.Sweet); // Allow sweet seeds to drop
+        }
+        if (CheckSeeds(sweetSeeds))
+        {
+            Debug.Log("Completed"); // All seeds have been processed
+        }
+
+
+
+    }
+
+        private bool CheckSeeds(List<Seed> seeds)
+    {
+        int seedsClicked = 0;
+
+        foreach (var seed in seeds)
+        {
             if (seed.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
             {
-                bitterSeedsClicked++;
-                Debug.Log("Bitter seed clicked: " + bitterSeedsClicked);
+                seedsClicked++;
             }
         }
 
-        // Check if all bitter seeds have been pressed
-        if (bitterSeedsClicked >= totalBitterSeeds)
-        {
-            Debug.Log("All bitter seeds have been pressed.");
-            // Continue with the next seed type...
-        }
+        return seedsClicked >= seeds.Count;
     }
+
+
 
 
 }

@@ -29,7 +29,7 @@ public class SeedHitBox : MonoBehaviour
             Seed seed = hit.collider.gameObject.GetComponent<Seed>();
             if (seed != null)
             {
-                seed.CheckAndDropIfBitter();
+                seed.CheckAndDrop();
             }
         }
     }

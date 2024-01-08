@@ -10,6 +10,22 @@ public class Seed : MonoBehaviour
     public SeedFlavor CurrentFlavor { get; private set; }
 
     public bool IsBitter => CurrentFlavor == SeedFlavor.Bitter;
+    public bool IsSalty => CurrentFlavor == SeedFlavor.Salty;
+    public bool IsSavory => CurrentFlavor == SeedFlavor.Savory;
+    public bool IsSour => CurrentFlavor == SeedFlavor.Sour;
+    public bool IsSweet => CurrentFlavor == SeedFlavor.Sweet;
+
+
+    private static Dictionary<SeedFlavor, bool> dropConditions = new Dictionary<SeedFlavor, bool>()
+    {
+        { SeedFlavor.Bitter, true },
+        { SeedFlavor.Salty, false },
+        { SeedFlavor.Savory, false },
+        { SeedFlavor.Sour, false },
+        { SeedFlavor.Sweet, false }
+    };
+
+
     private Rigidbody2D rb;
 
     // Assign the sprites for each flavor in the Unity Editor
@@ -36,6 +52,9 @@ public class Seed : MonoBehaviour
         {
             GetComponent<Collider>().enabled = false; // Disable the collider initially
         }
+
+
+
     }
     
     public void EnableSeed()
@@ -75,18 +94,52 @@ public class Seed : MonoBehaviour
         }
     }
 
-    public void CheckAndDropIfBitter()
+
+    static public void EnableDrop(SeedFlavor flavor)
     {
-        if (IsBitter)
+        if (dropConditions.ContainsKey(flavor))
         {
-            if (rb != null)
-            {
-                rb.isKinematic = false; // Enable physics interactions
-                rb.bodyType = RigidbodyType2D.Dynamic;
-            }
+            dropConditions[flavor] = true;
         }
     }
 
+    // static public void SaltyDrop(){
+    // canSaltyDrop = true;
+    // }
+    // static public void SavoryDrop(){
+    // canSavoryDrop = true;
+    // }
+    // static public void SourDrop(){
+    // canSourDrop = true;
+    // }
+    // static public void SweetDrop(){
+    // canSweetDrop = true;
+    // }
+
+    public bool CanDrop()
+    {
+        return dropConditions.ContainsKey(CurrentFlavor) && dropConditions[CurrentFlavor];
+
+        // if (IsBitter) return true; // Bitter seeds can always drop
+        // if (IsSalty && canSaltyDrop) return true; // Salty seeds drop if flag is set
+        // if (IsSavory && canSavoryDrop) return true; // Salty seeds drop if flag is set
+        // if (IsSour && canSourDrop) return true; // Salty seeds drop if flag is set
+        // if (IsSweet && canSweetDrop) return true; // Salty seeds drop if flag is set
+        // return false; // Other seeds cannot drop
+    }
+
+
+
+
+
+    public void CheckAndDrop()
+    {
+        if (CanDrop() && rb != null)
+        {
+            rb.isKinematic = false; // Enable physics interactions
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+    }
 
 
 }

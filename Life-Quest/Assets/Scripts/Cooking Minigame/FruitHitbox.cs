@@ -6,7 +6,6 @@ public class FruitHitbox : MonoBehaviour
 {
     [SerializeField] private SlicableFruit slicableFruit;
     [SerializeField] private GameObject sliced;
-    [SerializeField] private float dropSpeed = 5f; // Speed at which the fruit drops
     private bool isTouching = false;
     private bool isSliced = false; // To check if the fruit is already sliced
 
