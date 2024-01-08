@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeedSelector : MonoBehaviour
 {
+
+
+    public GameObject text2;
+    public GameObject text3;
+    public GameObject text4;
+    public GameObject text5;
+    public GameObject text6;
 
     private List<Seed> bitterSeeds = new List<Seed>();
     private List<Seed> saltySeeds = new List<Seed>();
@@ -37,22 +45,36 @@ private void Start()
         if (CheckSeeds(bitterSeeds))
         {
             Seed.EnableDrop(Seed.SeedFlavor.Salty); // Allow salty seeds to drop
+            text2.SetActive(false);
+            text3.SetActive(true);
         }
         if (CheckSeeds(saltySeeds))
         {
             Seed.EnableDrop(Seed.SeedFlavor.Savory); // Allow savory seeds to drop
+            text3.SetActive(false);
+            text4.SetActive(true);
         }
         if (CheckSeeds(savorySeeds))
         {
             Seed.EnableDrop(Seed.SeedFlavor.Sour); // Allow sour seeds to drop
+            text4.SetActive(false);
+            text5.SetActive(true);
         }
         if (CheckSeeds(sourSeeds))
         {
             Seed.EnableDrop(Seed.SeedFlavor.Sweet); // Allow sweet seeds to drop
+            text5.SetActive(false);
+            text6.SetActive(true);
         }
         if (CheckSeeds(sweetSeeds))
         {
             Debug.Log("Completed"); // All seeds have been processed
+
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed",0);
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayer",minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
+
         }
 
 

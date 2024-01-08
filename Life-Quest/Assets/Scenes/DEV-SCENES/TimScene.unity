@@ -131,9 +131,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 535150150344293499, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761987776651587014, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1911799546751372645, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
       propertyPath: m_Name
       value: NewSlicingGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462136156201357477, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982149532179355427, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7199994928674719790, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -173,6 +189,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199994928674719790, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857134800700931171, guid: 0be2f4e033b2f3e42aac9e7a9aa23c32, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
