@@ -163,7 +163,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = 5; // 30 seconds countdown
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)
