@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
-            SceneManager.LoadScene("Scenes/CompletionScene");
+            SceneManager.LoadScene("CompletionScreen");
             minigameCompleted = true;
         }
     }
