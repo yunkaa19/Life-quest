@@ -101,8 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
-            //SceneManager.LoadScene("CompletionScene");
-            LogMinigameCompletion();
+            SceneManager.LoadScene("Scenes/CompletionScene");
             minigameCompleted = true;
         }
     }
@@ -110,7 +109,6 @@ public class GameManager : MonoBehaviour
     public void NoteDeactivated()
     {
         deactivatedNotes++;
-        LogDeactivatedNotesCount();
     }
 
     void LogActiveNotesCount()

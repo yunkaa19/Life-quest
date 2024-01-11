@@ -29,11 +29,11 @@ public class NoteObject : MonoBehaviour
             {
                 Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
                 RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
-                gameManager.NoteDeactivated(); 
                 
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
                     gameObject.SetActive(false);
+                    gameManager.NoteDeactivated(); 
                 }
             }
         }
