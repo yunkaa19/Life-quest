@@ -15,7 +15,7 @@ public class BellyRubGame : MonoBehaviour
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
-    private float rubbingTimer = 0f; // TODO: Make it start from 30 seconds and count down
+    private float rubbingTimer = 0f; 
     private Coroutine countdownCoroutine;
 
     public TMP_Text countdownText;
@@ -172,7 +172,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 5; // 30 seconds countdown
+        int timeLeft = 30; // 30 seconds countdown
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)

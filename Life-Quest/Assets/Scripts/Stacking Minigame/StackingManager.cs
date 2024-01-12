@@ -108,21 +108,16 @@ public class StackingManager : MonoBehaviour
         List<GameObject> sortedObjects = new List<GameObject>(uniqueObjects);
         sortedObjects.Sort((obj1, obj2) => obj1.transform.position.y.CompareTo(obj2.transform.position.y));
 
-        Debug.Log("[IsProperlyStacked] Sorted Objects Count: " + sortedObjects.Count);
 
         for (int i = 0; i < sortedObjects.Count - 1; i++)
         {
             float yDistance = Mathf.Abs(sortedObjects[i].transform.position.y - sortedObjects[i + 1].transform.position.y);
-            Debug.Log($"[IsProperlyStacked] Vertical Distance between {sortedObjects[i].name} and {sortedObjects[i + 1].name}: {yDistance}");
 
             if (yDistance < minVerticalDistance)
             {
-                Debug.Log("[IsProperlyStacked] Objects too close vertically. Not properly stacked.");
                 return false;
             }
         }
-
-        Debug.Log("[IsProperlyStacked] Objects are properly stacked.");
         return true;
     }
 

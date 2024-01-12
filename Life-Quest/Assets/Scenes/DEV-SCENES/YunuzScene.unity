@@ -2136,6 +2136,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7002450393944229392, guid: 5d6ed058ce87f73409699e96e26c0729, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002450393944229392, guid: 5d6ed058ce87f73409699e96e26c0729, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: e2ede43e92563c74985331fa72ce90c8, type: 3}
+    - target: {fileID: 7002450393944229392, guid: 5d6ed058ce87f73409699e96e26c0729, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7919812456905185090, guid: 5d6ed058ce87f73409699e96e26c0729, type: 3}
       propertyPath: m_Interpolate
       value: 1
