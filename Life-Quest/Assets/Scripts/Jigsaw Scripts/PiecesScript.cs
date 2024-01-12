@@ -26,6 +26,7 @@ public class PiecesScript : MonoBehaviour
                     transform.position = RightPosition;
                     InRightPosition = true;
                     GetComponent<SortingGroup>().sortingOrder = 0;
+                    DragAndDrop.amountOfRightPieces ++;
                 }
             }
         }
