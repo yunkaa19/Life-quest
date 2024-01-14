@@ -1182,6 +1182,7 @@ MonoBehaviour:
   delayBeforeStart: 10
   touchToStartImage: {fileID: 6237901444207219723}
   infoImage: {fileID: 7050608399332414271}
+  effectParticle: {fileID: 6344052263597833331, guid: af5d58115008ca34797f0fd65d62c1c8, type: 3}
   activeNotes: 0
   deactivatedNotes: 0
 --- !u!1 &3314238960389749869

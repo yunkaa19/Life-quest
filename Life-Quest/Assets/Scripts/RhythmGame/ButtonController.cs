@@ -33,7 +33,7 @@ public class ButtonController : MonoBehaviour
                     if (IsCollidingWithActivator(hit.collider.gameObject))
                     {
                         hit.collider.gameObject.SetActive(false);
-                        gameManager.NoteDeactivated();
+                        gameManager.NoteDeactivated(transform, false);
                     }
                 }
 

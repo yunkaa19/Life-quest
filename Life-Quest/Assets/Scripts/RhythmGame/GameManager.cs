@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject touchToStartImage;
     public GameObject infoImage;
+    public GameObject effectParticle;
     public int activeNotes;
     public int deactivatedNotes;
 
@@ -106,10 +107,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void NoteDeactivated()
+    public void NoteDeactivated(Transform noteTransform, bool playParticleSystem)
     {
         deactivatedNotes++;
+
+        if (playParticleSystem)
+        {
+            Instantiate(effectParticle, noteTransform.position, Quaternion.identity);
+        }
     }
+
 
     void LogActiveNotesCount()
     {

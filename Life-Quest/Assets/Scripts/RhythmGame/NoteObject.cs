@@ -18,7 +18,7 @@ public class NoteObject : MonoBehaviour
         if (transform.position.y <= -3.5f)
         {
             gameObject.SetActive(false);
-            gameManager.NoteDeactivated(); 
+            gameManager.NoteDeactivated(transform, true);
         }
 
         if (Input.touchCount > 0)
@@ -33,7 +33,7 @@ public class NoteObject : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
                     gameObject.SetActive(false);
-                    gameManager.NoteDeactivated(); 
+                    gameManager.NoteDeactivated(transform, false);
                 }
             }
         }
