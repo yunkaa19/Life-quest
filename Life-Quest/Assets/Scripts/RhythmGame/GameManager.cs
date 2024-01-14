@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject touchToStartImage;
     public GameObject infoImage;
+    public GameObject tapInfo;
     public GameObject effectParticle;
     public int activeNotes;
     public int deactivatedNotes;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         theMusic.Stop();
         touchToStartImage.SetActive(true);
         infoImage.SetActive(false);
+        tapInfo.SetActive(false);
         activeNotes = GameObject.FindGameObjectsWithTag("Note").Length;
         LogActiveNotesCount();
         deactivatedNotes = 0;
@@ -62,6 +64,9 @@ public class GameManager : MonoBehaviour
         musicStartTime = Time.time;
         touchToStartImage.SetActive(false);
         infoImage.SetActive(true);
+        tapInfo.SetActive(true);
+
+        StartCoroutine(HideTapInfoAfterDelay());
     }
 
     void PlayDelayedMusic()
@@ -90,6 +95,12 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(DelayBeforeSceneLoad());
         }
+    }
+
+    IEnumerator HideTapInfoAfterDelay()
+    {
+        yield return new WaitForSeconds(10f);
+        tapInfo.SetActive(false);
     }
 
     private IEnumerator DelayBeforeSceneLoad()
