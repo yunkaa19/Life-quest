@@ -8,6 +8,8 @@ TagManager:
   - BalancingObject
   - Treasure
   - Ripple
+  - Draggable
+  - SortedContainer
   layers:
   - Default
   - TransparentFX
