@@ -86,12 +86,42 @@ public class StackingManager : MonoBehaviour
         // Start balancing if 4 hexagons are touching and not already balancing
         if (touchingPairs.Count == 3 && !isBalancing)
         {
-            isBalancing = true;
-            StartCoroutine(BalancingRoutine());
+            if (IsProperlyStacked())
+            {
+                isBalancing = true;
+                StartCoroutine(BalancingRoutine());
+            }
         }
     }
 
-    
+    private bool IsProperlyStacked()
+    {
+        const float minVerticalDistance = 0.18f;
+        HashSet<GameObject> uniqueObjects = new HashSet<GameObject>();
+
+        foreach (var pair in touchingPairs)
+        {
+            uniqueObjects.Add(pair.Item1);
+            uniqueObjects.Add(pair.Item2);
+        }
+
+        List<GameObject> sortedObjects = new List<GameObject>(uniqueObjects);
+        sortedObjects.Sort((obj1, obj2) => obj1.transform.position.y.CompareTo(obj2.transform.position.y));
+
+
+        for (int i = 0; i < sortedObjects.Count - 1; i++)
+        {
+            float yDistance = Mathf.Abs(sortedObjects[i].transform.position.y - sortedObjects[i + 1].transform.position.y);
+
+            if (yDistance < minVerticalDistance)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     /// <summary>
     /// Applies forces based on device's tilt (using acceleration) to all GameObjects in touchingPairs, influencing their movement.
     /// </summary>

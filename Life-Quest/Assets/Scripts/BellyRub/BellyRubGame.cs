@@ -15,7 +15,7 @@ public class BellyRubGame : MonoBehaviour
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
-    private float rubbingTimer = 0f; // TODO: Make it start from 30 seconds and count down
+    private float rubbingTimer = 0f; 
     private Coroutine countdownCoroutine;
 
     public TMP_Text countdownText;
@@ -28,6 +28,13 @@ public class BellyRubGame : MonoBehaviour
     public AdvancedVibration advancedVibration;        
     public float RubbingFastThreshold = 1.5f;
     public float RubbingSlowThreshold = 0.4f;
+    
+    //Values here are based on the values from collection of data from 30 tests. Values may need adjustment.
+    [Header("Belly Rub Detection")]
+    private float minAccelerationMagnitude = 0.912f; 
+    private float maxAccelerationMagnitude = 1.123f; 
+    private float gyroSensitivity = 0.921f; 
+    
     #endregion
 
     #region Unity Methods
@@ -94,27 +101,19 @@ public class BellyRubGame : MonoBehaviour
     private void DetectRubbingMotion()
     {
         Vector3 acceleration = Input.acceleration;
+        float accelerationMagnitude = acceleration.magnitude;
         Vector3 gyroRotationRate = Input.gyro.rotationRateUnbiased;
-        
-        // Calculate the speed of the rubbing motion
-        //float rubbingSpeed = Mathf.Sqrt(Mathf.Pow(acceleration.x, 2) + Mathf.Pow(acceleration.y, 2) + Mathf.Pow(acceleration.z, 2));
-        
-        // Update the vibration pattern based on the speed
-        //UpdateVibrationPattern(rubbingSpeed);
-        
-        //if the device is moving in a rubbing motion and the player is not already rubbing, start the countdown timer
-        if (Mathf.Abs(acceleration.x) > 0.5f && Mathf.Abs(acceleration.y) > 0.5f)
+        float gyroMagnitude = gyroRotationRate.magnitude;
+
+        // Check if the acceleration and gyro are within the belly rub thresholds
+        if (accelerationMagnitude > minAccelerationMagnitude && accelerationMagnitude < maxAccelerationMagnitude &&
+            gyroMagnitude > gyroSensitivity)
         {
             if (!isRubbing)
             {
-                isRubbing = true;
-                advancedVibration.Vibrate();
-                if (countdownCoroutine == null)
-                {
-                    countdownCoroutine = StartCoroutine(CountdownTimer());
-                }
+                StartRubbing();
             }
-            rubbingTimer = 0f;
+            rubbingTimer = 0f; // Reset timer as rubbing is detected
         }
         else
         {
@@ -126,6 +125,16 @@ public class BellyRubGame : MonoBehaviour
         }
     }
     
+    
+    private void StartRubbing()
+    {
+        isRubbing = true;
+        advancedVibration.Vibrate();
+        if (countdownCoroutine == null)
+        {
+            countdownCoroutine = StartCoroutine(CountdownTimer());
+        }
+    }
     
     //support for advanced vibration
     private void UpdateVibrationPattern(float rubbingSpeed)
@@ -163,7 +172,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 5; // 30 seconds countdown
+        int timeLeft = 30; // 30 seconds countdown
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)
@@ -192,7 +201,7 @@ public class BellyRubGame : MonoBehaviour
         }
     }
 
-    private void LoadTargetScene()
+    public void LoadTargetScene()
     {
         string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
         SceneManager.LoadScene(targetScene);
