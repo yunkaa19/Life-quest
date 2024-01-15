@@ -22,9 +22,10 @@ public class SortingMinigame : MonoBehaviour
     private bool isDragging = false;
 
     public GameObject popUpCanvas;
-
+    private AudioManager audioManager;
     void Start()
     {
+        audioManager = AudioManager.Instance;
         GenerateBoxes();
         foreach (DraggableItem item in draggableObjects)
         {
@@ -204,6 +205,11 @@ public class SortingMinigame : MonoBehaviour
         if (!isDragging && filledSnapPoints.Count == targetFilledSnapPointsCount)
         {
             Debug.Log("You win!");
+
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            audioManager.SmellingMiniMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             SceneManager.LoadScene("CompletionScreen");
         }
     }
@@ -212,10 +218,23 @@ public class SortingMinigame : MonoBehaviour
     public void OpenPopUp()
     {
         popUpCanvas.SetActive(true);
+        audioManager.SmellingMiniMusic.setPaused(true);
     }
 
     public void ClosePopUp()
     {
         popUpCanvas.SetActive(false);
+
+        if (audioManager.SmellingMiniMusic.getPaused(out bool isPaused) == FMOD.RESULT.OK)
+        {
+            if (isPaused)
+            {
+                audioManager.SmellingMiniMusic.setPaused(false);
+            }
+            else
+            {
+                audioManager.SmellingMiniMusic.start();
+            }
+        }
     }
 }

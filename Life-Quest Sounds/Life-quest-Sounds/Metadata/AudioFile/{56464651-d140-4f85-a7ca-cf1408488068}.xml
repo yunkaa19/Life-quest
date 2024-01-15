@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{56464651-d140-4f85-a7ca-cf1408488068}">
+		<property name="assetPath">
+			<value>looperman-l-5214965-0310557-acoustic-lofi-guitar-astroid-tinna.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>22.857142857142858</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a7238e56-d8a2-40f6-8fc8-8123c3378605}</destination>
+		</relationship>
+	</object>
+</objects>

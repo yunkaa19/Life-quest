@@ -14,8 +14,13 @@ public class AreaSelector : MonoBehaviour
     private string selectedSpriteName;
     public string loadingSceneName = "LoadingScene";
 
+    private AudioManager audioManager;
+
+
     private void Start()
     {
+        audioManager = AudioManager.Instance;
+        audioManager.MainMenuMusic.start();
         SceneMapper();
         ResetAllSpriteColors();
         AddTouchListener();
@@ -89,7 +94,7 @@ public class AreaSelector : MonoBehaviour
         {
             PlayerPrefs.SetInt("PlayBellyRub", 0); 
         }
-
+        audioManager.MainMenuMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene(loadingSceneName);
     }
 
