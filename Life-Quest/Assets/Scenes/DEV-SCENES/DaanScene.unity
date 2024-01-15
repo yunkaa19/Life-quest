@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2155343224623267364, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2422942276154786965, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: playOnAwake
       value: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using RDG;
 
 public class collectTreasure : MonoBehaviour
 {
@@ -21,12 +22,7 @@ public class collectTreasure : MonoBehaviour
 
     void Update()
     {
-        if(treasuresCollected == 3)
-        {
-            minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
-            SceneManager.LoadScene("CompletionScreen");
-        }
+
     }
 
 
@@ -46,6 +42,12 @@ public class collectTreasure : MonoBehaviour
 
             treasuresCollected ++;
             spawnTreasure.alreadySpawned = 0;
+            if(treasuresCollected == 3)
+            {
+            minigamesPlayed++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RDG;
 
 public class GrowCircle : MonoBehaviour
 {
@@ -33,7 +34,6 @@ public class GrowCircle : MonoBehaviour
         Debug.Log("collided");
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("Play hit");
             Handheld.Vibrate();
         }
     }
