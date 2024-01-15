@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{308a9558-6dc5-4afb-a81f-0ed70ec175dd}">
+		<property name="assetPath">
+			<value>calm-wind-blowing-sfx.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.4646485260770978</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a7238e56-d8a2-40f6-8fc8-8123c3378605}</destination>
+		</relationship>
+	</object>
+</objects>

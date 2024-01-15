@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ba27d0ec-c904-47c2-9a2b-85aea4c4fe8a}">
+		<property name="assetPath">
+			<value>relaxing-mountains-rivers-streams-running-water-18178.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>299.80799999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a7238e56-d8a2-40f6-8fc8-8123c3378605}</destination>
+		</relationship>
+	</object>
+</objects>
