@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject infoImage;
     public GameObject tapInfo;
     public GameObject effectParticle;
-    public GameObject popUpCanvas;
     public int activeNotes;
     public int deactivatedNotes;
 
@@ -59,33 +58,6 @@ public class GameManager : MonoBehaviour
     }
 
     void StartMusic()
-    {
-        if (popUpCanvas.activeSelf)
-        {
-            StartCoroutine(WaitForPopUpCloseAndStartMusic());
-        }
-        else
-        {
-            StartMusicInternal();
-        }
-    }
-
-    IEnumerator WaitForPopUpCloseAndStartMusic()
-    {
-        if (!popUpCanvas.activeSelf)
-        {
-            OpenPopUp();
-        }
-
-        while (popUpCanvas.activeSelf)
-        {
-            yield return null;
-        }
-
-        StartMusicInternal();
-    }
-
-    void StartMusicInternal()
     {
         musicStarted = true;
         PlayDelayedMusic();
@@ -141,9 +113,6 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
-            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
-            minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
             minigameCompleted = true;
         }
@@ -174,15 +143,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Minigame completed!");
         theMusic.Stop();
-    }
-
-    public void OpenPopUp()
-    {
-        popUpCanvas.SetActive(true);
-    }
-
-    public void ClosePopUp()
-    {
-        popUpCanvas.SetActive(false);
     }
 }
