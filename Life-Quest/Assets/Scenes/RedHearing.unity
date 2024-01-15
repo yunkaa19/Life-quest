@@ -215,11 +215,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: INFOBUTTON
       objectReference: {fileID: 0}
+    - target: {fileID: 2669436888885750594, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
+--- !u!1 &720053850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5542774076172902310, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+  m_PrefabInstance: {fileID: 1212953617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212953617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +237,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2069726078}
     m_Modifications:
+    - target: {fileID: 1349820147437469279, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1638188837}
+    - target: {fileID: 1349820147437469279, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349820147437469279, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374046503579524042, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_text
+      value: Rhythm Game
+      objectReference: {fileID: 0}
     - target: {fileID: 3333290848247826989, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -320,6 +345,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_text
+      value: 'The goal of this is game is for the player to press on the white buttons
+        in the rhythm of the song. Wait for the notes to start scrolling. '
+      objectReference: {fileID: 0}
     - target: {fileID: 4447993522388508724, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_SortingOrder
       value: 5
@@ -328,6 +358,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUpCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5542774076172902310, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903072616595882, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b27cc34e6e963e4aa851c6d22849e64, type: 3}
+    - target: {fileID: 8590480329411659517, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b51774aae76348c4b95e967575f5d084, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -338,6 +380,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3333290848247826989, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
   m_PrefabInstance: {fileID: 1212953617}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638188837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8499937625711053929, guid: 1832a3941f0e39b43bc7466e64f11d51, type: 3}
+  m_PrefabInstance: {fileID: 2069726077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866faa6f1d17b5540a42ea9c6e558e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2069726077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,6 +443,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8499937625711053929, guid: 1832a3941f0e39b43bc7466e64f11d51, type: 3}
+      propertyPath: popUpCanvas
+      value: 
+      objectReference: {fileID: 720053850}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
