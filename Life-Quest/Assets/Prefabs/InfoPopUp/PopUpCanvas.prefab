@@ -215,8 +215,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The goal of this is game is for the player to sort the items into the categories
-    that they feel the items belong into.
+  m_text: 'The goal of this is game is for the player to sort the items into the
+    categories that they feel the items belong into.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 013196e6927c0a443b9847b6a3ff8e57, type: 2}
   m_sharedMaterial: {fileID: 1783003897354259076, guid: 013196e6927c0a443b9847b6a3ff8e57, type: 2}
