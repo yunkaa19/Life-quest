@@ -13,7 +13,7 @@ public class spawnTreasure : MonoBehaviour
 
     public float distanceToPlayer = 0;
     public Transform targetPlayer;
-    
+
     void Start()
     {
 
@@ -32,8 +32,7 @@ public class spawnTreasure : MonoBehaviour
 
     void DeterminePosition()
     {
-                
-        treasureDistance = Random.Range(20f,30f);
+        treasureDistance = Random.Range(9f,18f);
         horizontalPosition = Random.Range(-treasureDistance, treasureDistance);
         verticalPositionStoring = treasureDistance*treasureDistance - horizontalPosition*horizontalPosition;
         verticalPosition = Mathf.Sqrt(verticalPositionStoring);
