@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DragAndDrop : MonoBehaviour
     {
         if(amountOfRightPieces == 16)
         {
-            Debug.Log("It works");
+            CompletionCriteria();
         }
         if(Input.GetMouseButtonDown(0))
         {
@@ -48,6 +49,14 @@ public class DragAndDrop : MonoBehaviour
         {
             Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             SelectedPiece.transform.position = new Vector3(MousePoint.x,MousePoint.y,0);
+        }
+
+        void CompletionCriteria()
+        {
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            minigamesPlayed ++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
         }
     }
 }
