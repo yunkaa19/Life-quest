@@ -311,9 +311,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUpCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5542774076172902310, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8510672573158218065, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -343,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 3840002040626911695, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
       propertyPath: m_SizeDelta.y
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168519775288406960, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4555237963069793589, guid: b96d0b3331437d24286004cdaddbcc94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,6 +597,10 @@ PrefabInstance:
     - target: {fileID: 2669436888885750594, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
       propertyPath: m_Name
       value: INFOBUTTON
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669436888885750594, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
