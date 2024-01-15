@@ -113,6 +113,9 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            minigamesPlayed++; 
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
             minigameCompleted = true;
         }
