@@ -15,9 +15,10 @@ public class BellyRubGame : MonoBehaviour
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
-    private float rubbingTimer = 0f; // TODO: Make it start from 30 seconds and count down
+    private float rubbingTimer = 0f;
     private Coroutine countdownCoroutine;
 
+    public int countdownDuration = 30;
     public TMP_Text countdownText;
 
     //fallback for non-Android or when vibration is not supported
@@ -50,7 +51,7 @@ public class BellyRubGame : MonoBehaviour
             Destroy(startButton.gameObject);
         }
         Input.gyro.enabled = true;
-        countdownText.text = "30";
+        countdownText.text = countdownDuration.ToString();
     }
 
 
@@ -172,7 +173,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = countdownDuration; // Use the public variable for countdown duration
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)
@@ -234,7 +235,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownWithoutGyro()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = countdownDuration; // Use the public variable for countdown duration
         countdownText.text = timeLeft.ToString() + "s";
 
         while (timeLeft > 0)
