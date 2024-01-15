@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class SceneTransition : MonoBehaviour
 {
-    //public void OnPointerDown(PointerEventData eventData)
-    //{
-    //    SceneManager.LoadScene("Main Menu");
-    //    Debug.Log("Clicked!");
-    //}
+    private int starterMinigamesPlayed = 1;
 
     public Button yourButton;
 
@@ -41,6 +37,7 @@ public class SceneTransition : MonoBehaviour
 
     void TaskOnClick()
     {
+        PlayerPrefs.SetInt("MinigamesPlayed", starterMinigamesPlayed);
         SceneManager.LoadScene("Main Menu");
         Debug.Log("Clicked!");
     }

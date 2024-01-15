@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b418e0ce-3f32-403a-b219-62c4a2fa0ed2}">
+		<property name="assetPath">
+			<value>looperman-l-2471635-0216393-lost-in-japan.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>24</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a7238e56-d8a2-40f6-8fc8-8123c3378605}</destination>
+		</relationship>
+	</object>
+</objects>
