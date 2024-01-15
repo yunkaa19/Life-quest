@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Puzzle
+  - BalancingObject
   - Treasure
   - Ripple
+  - Draggable
+  - SortedContainer
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - Glow Layer
+  - 
   - 
   - 
   - 
@@ -46,7 +49,4 @@ TagManager:
     locked: 0
   - name: Pieces
     uniqueID: 1966197511
-    locked: 0
-  - name: Player
-    uniqueID: 1540667841
     locked: 0

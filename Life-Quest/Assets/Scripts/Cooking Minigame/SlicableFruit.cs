@@ -5,6 +5,8 @@ using UnityEngine;
 public class SlicableFruit : MonoBehaviour
 {
     [SerializeField] private GameObject unslicedObject;
+    [SerializeField] private GameObject text1;
+    [SerializeField] private GameObject text2;
     private GameObject slicedObject;
     private Rigidbody2D m_rigibody;
     private Collider2D m_collider;
@@ -31,6 +33,8 @@ public class SlicableFruit : MonoBehaviour
     public void Slice(){
         unslicedObject.SetActive(false);
         slicedObject.SetActive(true);
+        text1.SetActive(false);
+        text2.SetActive(true);
 
         m_collider.enabled = false;
         // m_rigibody.bodyType = RigidbodyType2D.Dynamic;
@@ -39,12 +43,11 @@ public class SlicableFruit : MonoBehaviour
         OnTomatoSliced?.Invoke();
 
 
-        foreach (var seed in seeds)
-        {
-            seed.AssignRandomFlavor();
-            seed.gameObject.SetActive(true);
-        }
-        LogSeedFlavors();
+    foreach (var seed in seeds)
+    {
+        seed.EnableSeed(); // Enable the seed components
+    }
+    LogSeedFlavors();
 
     }
 

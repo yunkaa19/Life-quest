@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class DragAndDrop : MonoBehaviour
 {
     public GameObject SelectedPiece;
+    [SerializeField] public static int amountOfRightPieces = 0;
     int OIL = 1;
     
     void Start()
@@ -15,6 +17,10 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
+        if(amountOfRightPieces == 16)
+        {
+            CompletionCriteria();
+        }
         if(Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -43,6 +49,14 @@ public class DragAndDrop : MonoBehaviour
         {
             Vector3 MousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             SelectedPiece.transform.position = new Vector3(MousePoint.x,MousePoint.y,0);
+        }
+
+        void CompletionCriteria()
+        {
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
+            minigamesPlayed ++;
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+            SceneManager.LoadScene("CompletionScreen");
         }
     }
 }
