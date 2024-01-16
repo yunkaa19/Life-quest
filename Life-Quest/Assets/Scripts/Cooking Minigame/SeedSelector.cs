@@ -19,12 +19,13 @@ public class SeedSelector : MonoBehaviour
     private List<Seed> sourSeeds = new List<Seed>();
     private List<Seed> sweetSeeds = new List<Seed>();
 
+    private AudioManager audioManager;
 
 
-private void Start()
-{
-
-    
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+        audioManager.TastingMiniMusic.start();
         Seed[] seeds = FindObjectsOfType<Seed>();
 
         foreach (var seed in seeds)
@@ -36,7 +37,7 @@ private void Start()
             if (seed.IsSweet) sweetSeeds.Add(seed);
         }
 
-}
+    }
 
     private void Update()
     {
@@ -69,10 +70,10 @@ private void Start()
         if (CheckSeeds(sweetSeeds))
         {
             Debug.Log("Completed"); // All seeds have been processed
-
-            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed",0);
+            audioManager.TastingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayer",minigamesPlayed);
+            PlayerPrefs.SetInt("MinigamesPlayer", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
 
         }
@@ -81,7 +82,7 @@ private void Start()
 
     }
 
-        private bool CheckSeeds(List<Seed> seeds)
+    private bool CheckSeeds(List<Seed> seeds)
     {
         int seedsClicked = 0;
 

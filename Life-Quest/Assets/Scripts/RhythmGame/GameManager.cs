@@ -24,10 +24,13 @@ public class GameManager : MonoBehaviour
 
     private bool minigameCompleted = false;
 
+    private AudioManager audioManager;
+
     void Start()
     {
+        audioManager = AudioManager.Instance;
         instance = this;
-        theMusic.Stop();
+        //theMusic.Stop();
         touchToStartImage.SetActive(true);
         infoImage.SetActive(false);
         tapInfo.SetActive(false);
@@ -99,7 +102,8 @@ public class GameManager : MonoBehaviour
 
     void PlayDelayedMusic()
     {
-        theMusic.PlayDelayed(0);
+        //theMusic.PlayDelayed(0);
+        audioManager.RhythmMinigame.start();
     }
 
     void StartBeatScrollerAfterDelay()
@@ -141,6 +145,7 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
+            audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             minigamesPlayed++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
@@ -173,7 +178,7 @@ public class GameManager : MonoBehaviour
     void LogMinigameCompletion()
     {
         Debug.Log("Minigame completed!");
-        theMusic.Stop();
+        audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     public void OpenPopUp()

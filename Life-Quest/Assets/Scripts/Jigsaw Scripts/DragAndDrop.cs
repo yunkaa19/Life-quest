@@ -9,10 +9,12 @@ public class DragAndDrop : MonoBehaviour
     public GameObject SelectedPiece;
     [SerializeField] public static int amountOfRightPieces = 0;
     int OIL = 1;
-    
+    private AudioManager audioManager;
+
     void Start()
     {
-
+        audioManager = AudioManager.Instance;
+        audioManager.SeeingMiniMusic.start();
     }
 
     void Update()
@@ -53,6 +55,7 @@ public class DragAndDrop : MonoBehaviour
 
         void CompletionCriteria()
         {
+            audioManager.SeeingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             minigamesPlayed ++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
