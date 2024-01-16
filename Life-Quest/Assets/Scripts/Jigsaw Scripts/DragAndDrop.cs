@@ -10,6 +10,9 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField] public static int amountOfRightPieces = 0;
     int OIL = 1;
     private AudioManager audioManager;
+    private bool IsPopUpActive = true;
+
+    public GameObject popUpCanvas;
 
     void Start()
     {
@@ -23,7 +26,7 @@ public class DragAndDrop : MonoBehaviour
         {
             CompletionCriteria();
         }
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && IsPopUpActive == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.transform.CompareTag("Puzzle"))
@@ -61,5 +64,19 @@ public class DragAndDrop : MonoBehaviour
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
         }
+
+
+    }        
+    //Pop up management
+    public void OpenPopUp()
+    {
+        popUpCanvas.SetActive(true);
+        IsPopUpActive = true;
+    }
+
+    public void ClosePopUp()
+    {
+        popUpCanvas.SetActive(false);
+        IsPopUpActive = false;
     }
 }
