@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject infoImage;
     public GameObject tapInfo;
     public GameObject effectParticle;
-    public GameObject popUpCanvas;
     public int activeNotes;
     public int deactivatedNotes;
 
@@ -62,33 +61,6 @@ public class GameManager : MonoBehaviour
     }
 
     void StartMusic()
-    {
-        if (popUpCanvas.activeSelf)
-        {
-            StartCoroutine(WaitForPopUpCloseAndStartMusic());
-        }
-        else
-        {
-            StartMusicInternal();
-        }
-    }
-
-    IEnumerator WaitForPopUpCloseAndStartMusic()
-    {
-        if (!popUpCanvas.activeSelf)
-        {
-            OpenPopUp();
-        }
-
-        while (popUpCanvas.activeSelf)
-        {
-            yield return null;
-        }
-
-        StartMusicInternal();
-    }
-
-    void StartMusicInternal()
     {
         musicStarted = true;
         PlayDelayedMusic();
@@ -179,15 +151,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Minigame completed!");
         audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-    }
-
-    public void OpenPopUp()
-    {
-        popUpCanvas.SetActive(true);
-    }
-
-    public void ClosePopUp()
-    {
-        popUpCanvas.SetActive(false);
     }
 }
