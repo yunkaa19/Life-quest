@@ -20,6 +20,7 @@ public class SeedSelector : MonoBehaviour
     private List<Seed> sweetSeeds = new List<Seed>();
 
     private AudioManager audioManager;
+    public GameObject popUpCanvas;
 
 
     private void Start()
@@ -97,7 +98,16 @@ public class SeedSelector : MonoBehaviour
         return seedsClicked >= seeds.Count;
     }
 
+    //POP UP
+    public void OpenPopUp()
+    {
+        popUpCanvas.SetActive(true);
+    }
 
+    public void ClosePopUp()
+    {
+        popUpCanvas.SetActive(false);
+    }
 
 
 }
