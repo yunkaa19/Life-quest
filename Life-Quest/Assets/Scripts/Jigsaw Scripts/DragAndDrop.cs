@@ -9,10 +9,15 @@ public class DragAndDrop : MonoBehaviour
     public GameObject SelectedPiece;
     [SerializeField] public static int amountOfRightPieces = 0;
     int OIL = 1;
-    
+    private AudioManager audioManager;
+    private bool IsPopUpActive = true;
+
+    public GameObject popUpCanvas;
+
     void Start()
     {
-
+        audioManager = AudioManager.Instance;
+        audioManager.SeeingMiniMusic.start();
     }
 
     void Update()
@@ -21,7 +26,7 @@ public class DragAndDrop : MonoBehaviour
         {
             CompletionCriteria();
         }
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && IsPopUpActive == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.transform.CompareTag("Puzzle"))
@@ -53,10 +58,25 @@ public class DragAndDrop : MonoBehaviour
 
         void CompletionCriteria()
         {
+            audioManager.SeeingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             minigamesPlayed ++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
         }
+
+
+    }        
+    //Pop up management
+    public void OpenPopUp()
+    {
+        popUpCanvas.SetActive(true);
+        IsPopUpActive = true;
+    }
+
+    public void ClosePopUp()
+    {
+        popUpCanvas.SetActive(false);
+        IsPopUpActive = false;
     }
 }

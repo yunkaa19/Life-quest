@@ -33,8 +33,11 @@ public class BellyRubGame : MonoBehaviour
     [Header("Belly Rub Detection")]
     private float minAccelerationMagnitude = 0.912f; 
     private float maxAccelerationMagnitude = 1.123f; 
-    private float gyroSensitivity = 0.921f; 
-    
+    private float gyroSensitivity = 0.921f;
+
+    //Music/Audio
+    private AudioManager audioManager;
+
     #endregion
 
     #region Unity Methods
@@ -44,6 +47,8 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     void Start()
     {
+        audioManager = AudioManager.Instance;
+        audioManager.RubYourBelly.start();
         gyroEnabled = EnableGyro();
         if (gyroEnabled == true)
         {
@@ -196,7 +201,6 @@ public class BellyRubGame : MonoBehaviour
             isRubbing = false;
             rubbingTimer = 0f;
             countdownCoroutine = null;
-
             LoadTargetScene();
         }
     }
@@ -204,6 +208,7 @@ public class BellyRubGame : MonoBehaviour
     public void LoadTargetScene()
     {
         string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
+        audioManager.RubYourBelly.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene(targetScene);
 
     }

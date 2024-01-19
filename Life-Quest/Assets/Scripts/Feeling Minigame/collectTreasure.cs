@@ -11,10 +11,12 @@ public class collectTreasure : MonoBehaviour
     public spawnTreasure spawnTreasure;
     public int treasuresCollected = 0;
     int minigamesPlayed;
-    
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = AudioManager.Instance;
+        audioManager.FeelingMiniMusic.start();
         minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
         lightParticle = GetComponent<ParticleSystem>();
         pickupSFX = GetComponent<AudioSource>();
@@ -28,25 +30,26 @@ public class collectTreasure : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Treasure")
+        if (collision.gameObject.tag == "Treasure")
         {
             Handheld.Vibrate();
-            GameObject[] ripples = GameObject.FindGameObjectsWithTag("Ripple");        
-            foreach(GameObject rippleObject in ripples)
+            GameObject[] ripples = GameObject.FindGameObjectsWithTag("Ripple");
+            foreach (GameObject rippleObject in ripples)
             {
                 Destroy(rippleObject);
             }
 
             lightParticle.Play();
-            pickupSFX.Play();
+            audioManager.FeelingPickupSound.start();
 
-            treasuresCollected ++;
+            treasuresCollected++;
             spawnTreasure.alreadySpawned = 0;
-            if(treasuresCollected == 3)
+            if (treasuresCollected == 3)
             {
-            minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
-            SceneManager.LoadScene("CompletionScreen");
+                audioManager.FeelingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                minigamesPlayed++;
+                PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
+                SceneManager.LoadScene("CompletionScreen");
             }
         }
     }

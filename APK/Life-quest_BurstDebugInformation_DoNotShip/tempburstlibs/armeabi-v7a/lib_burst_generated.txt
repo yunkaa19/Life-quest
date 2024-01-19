@@ -11,9 +11,11 @@ Library: S:\GIT\tweekrachtproject\Life-Quest\Temp\BurstOutput\tempburstlibs\arme
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Postprocessing.Runtime;
+--assembly-defines=FMODUnityResonance;
 --assembly-defines=Unity.VisualScripting.Flow;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.AdaptivePerformance.Google.Android;
+--assembly-defines=FMODUnity;
 --assembly-defines=Unity.2D.SpriteShape.Runtime;
 --assembly-defines=Unity.2D.PixelPerfect;
 --assembly-defines=Unity.TextMeshPro;
