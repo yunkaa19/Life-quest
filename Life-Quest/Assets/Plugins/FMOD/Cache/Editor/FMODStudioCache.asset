@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: ../Life-Quest Sounds/Life-quest-Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638409166356756082
+  lastModified: 638412598662455401
   FileSizes:
   - Name: Desktop
-    Value: 1072
+    Value: 1222
   Exists: 1
 --- !u!114 &-7113269573785250280
 MonoBehaviour:
@@ -94,13 +94,13 @@ MonoBehaviour:
     Data4: 703341603
   Banks:
   - {fileID: -1419715685985612897}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4500
+  Length: 0
 --- !u!114 &-2604755255115400732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,11 +143,65 @@ MonoBehaviour:
   Path: ../Life-Quest Sounds/Life-quest-Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638409166356756082
+  lastModified: 638412598662442564
   FileSizes:
   - Name: Desktop
-    Value: 9322368
+    Value: 11161600
   Exists: 1
+--- !u!114 &-1329270483403580284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Completion
+  m_EditorClassIdentifier: 
+  Path: event:/Completion
+  Guid:
+    Data1: -801052643
+    Data2: 1190974887
+    Data3: -614522222
+    Data4: 1961749484
+  Banks:
+  - {fileID: -1419715685985612897}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5200
+--- !u!114 &-928486894945203494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RhythmMinigame
+  m_EditorClassIdentifier: 
+  Path: event:/RhythmMinigame
+  Guid:
+    Data1: -1384058058
+    Data2: 1122661662
+    Data3: 66212540
+    Data4: 311422959
+  Banks:
+  - {fileID: -1419715685985612897}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 131186
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,12 +226,15 @@ MonoBehaviour:
   - {fileID: 1656519368182040695}
   - {fileID: 3261247941132105996}
   - {fileID: -2604755255115400732}
+  - {fileID: -1329270483403580284}
+  - {fileID: -928486894945203494}
+  - {fileID: 2857160284072477182}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1419715685985612897}
   StringsBanks:
   - {fileID: -7117901987211176367}
-  cacheTime: 638409166356756082
+  cacheTime: 638412598662455401
   cacheVersion: 131616
 --- !u!114 &1656519368182040695
 MonoBehaviour:
@@ -206,6 +263,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 23414
+--- !u!114 &2857160284072477182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FeelingPickupSound
+  m_EditorClassIdentifier: 
+  Path: event:/FeelingPickupSound
+  Guid:
+    Data1: 1491328063
+    Data2: 1078833795
+    Data3: 1217851015
+    Data4: 891875591
+  Banks:
+  - {fileID: -1419715685985612897}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2893763222211474147
 MonoBehaviour:
   m_ObjectHideFlags: 0
