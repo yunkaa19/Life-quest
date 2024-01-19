@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83b02d5642436643ad7bfa898a09984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownDuration: 30
+  countdownDuration: 15
   countdownText: {fileID: 4970536755123577012}
   startButton: {fileID: 5324860492108691574}
   advancedVibration: {fileID: 4712599295632423066}
