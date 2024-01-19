@@ -250,6 +250,7 @@ public class BellyRubGame : MonoBehaviour
         rubbingTimer = 0f;
         countdownCoroutine = null;
         startButton.enabled = true;
+        LoadTargetScene();
     }
     #endregion
 }
