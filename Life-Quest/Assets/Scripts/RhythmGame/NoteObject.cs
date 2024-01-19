@@ -28,7 +28,6 @@ public class NoteObject : MonoBehaviour
             if (canBePressed)
             {
                 DestroyNoteObject();
-                gameManager.NoteDestroyed(transform, true);
             }
         }
     }
