@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1514256406685616988, guid: 71ef52ac078c6b242aef25fc75c78930, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1865289188122870287, guid: 71ef52ac078c6b242aef25fc75c78930, type: 3}
       propertyPath: m_LocalPosition.x
       value: 749.96497
@@ -170,12 +174,6 @@ PrefabInstance:
     - target: {fileID: 1865289188122870287, guid: 71ef52ac078c6b242aef25fc75c78930, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128636583446488587, guid: 71ef52ac078c6b242aef25fc75c78930, type: 3}
-      propertyPath: m_text
-      value: 'Rub your belly
-
-        using your device'
       objectReference: {fileID: 0}
     - target: {fileID: 9182009919473804848, guid: 71ef52ac078c6b242aef25fc75c78930, type: 3}
       propertyPath: m_Name
