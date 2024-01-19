@@ -448,7 +448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7377759152171312095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83b02d5642436643ad7bfa898a09984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownDuration: 15
   countdownText: {fileID: 4970536755123577012}
   startButton: {fileID: 5324860492108691574}
   advancedVibration: {fileID: 4712599295632423066}

@@ -15,9 +15,10 @@ public class BellyRubGame : MonoBehaviour
     private Gyroscope gyro;
     private bool gyroEnabled;
     private bool isRubbing = false;
-    private float rubbingTimer = 0f; 
+    private float rubbingTimer = 0f;
     private Coroutine countdownCoroutine;
 
+    public int countdownDuration = 30;
     public TMP_Text countdownText;
 
     //fallback for non-Android or when vibration is not supported
@@ -33,11 +34,8 @@ public class BellyRubGame : MonoBehaviour
     [Header("Belly Rub Detection")]
     private float minAccelerationMagnitude = 0.912f; 
     private float maxAccelerationMagnitude = 1.123f; 
-    private float gyroSensitivity = 0.921f;
-
-    //Music/Audio
-    private AudioManager audioManager;
-
+    private float gyroSensitivity = 0.921f; 
+    
     #endregion
 
     #region Unity Methods
@@ -47,15 +45,13 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     void Start()
     {
-        audioManager = AudioManager.Instance;
-        audioManager.RubYourBelly.start();
         gyroEnabled = EnableGyro();
         if (gyroEnabled == true)
         {
             Destroy(startButton.gameObject);
         }
         Input.gyro.enabled = true;
-        countdownText.text = "30";
+        countdownText.text = countdownDuration.ToString();
     }
 
 
@@ -177,7 +173,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownTimer()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = countdownDuration; // Use the public variable for countdown duration
         countdownText.text = timeLeft.ToString();
 
         while (timeLeft > 0 && isRubbing)
@@ -201,6 +197,7 @@ public class BellyRubGame : MonoBehaviour
             isRubbing = false;
             rubbingTimer = 0f;
             countdownCoroutine = null;
+
             LoadTargetScene();
         }
     }
@@ -208,7 +205,6 @@ public class BellyRubGame : MonoBehaviour
     public void LoadTargetScene()
     {
         string targetScene = PlayerPrefs.GetString("TargetScene", "Main Menu");
-        audioManager.RubYourBelly.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene(targetScene);
 
     }
@@ -239,7 +235,7 @@ public class BellyRubGame : MonoBehaviour
     /// </summary>
     IEnumerator CountdownWithoutGyro()
     {
-        int timeLeft = 30; // 30 seconds countdown
+        int timeLeft = countdownDuration; // Use the public variable for countdown duration
         countdownText.text = timeLeft.ToString() + "s";
 
         while (timeLeft > 0)
@@ -254,6 +250,7 @@ public class BellyRubGame : MonoBehaviour
         rubbingTimer = 0f;
         countdownCoroutine = null;
         startButton.enabled = true;
+        LoadTargetScene();
     }
     #endregion
 }

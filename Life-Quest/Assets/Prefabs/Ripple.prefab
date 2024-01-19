@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8414434764548841919}
   - component: {fileID: 3737278050615480826}
   - component: {fileID: 2374221644438532463}
+  - component: {fileID: 116266909520103123}
   m_Layer: 0
   m_Name: Ripple
   m_TagString: Ripple
@@ -100,6 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleChange: {x: 0, y: 0, z: 0}
+  distanceToPlayer: 0
+  AdvancedVibration: {fileID: 116266909520103123}
+  vibrationDuration: 0
+  durationAsInt: 0
 --- !u!50 &3737278050615480826
 Rigidbody2D:
   serializedVersion: 4
@@ -162,3 +167,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.56
+--- !u!114 &116266909520103123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693261103461658922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e636fd29c1e5ab34e990859f2e77de31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

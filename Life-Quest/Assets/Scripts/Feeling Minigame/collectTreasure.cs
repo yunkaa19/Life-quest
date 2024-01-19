@@ -33,17 +33,19 @@ public class collectTreasure : MonoBehaviour
         if (collision.gameObject.tag == "Treasure")
         {
             Handheld.Vibrate();
+            Debug.Log("test0");            
             GameObject[] ripples = GameObject.FindGameObjectsWithTag("Ripple");
             foreach (GameObject rippleObject in ripples)
             {
                 Destroy(rippleObject);
             }
-
+            Debug.Log("test1");
             lightParticle.Play();
             audioManager.FeelingPickupSound.start();
-
+            Debug.Log("test2");
             treasuresCollected++;
             spawnTreasure.alreadySpawned = 0;
+            Debug.Log("test3");
             if (treasuresCollected == 3)
             {
                 audioManager.FeelingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

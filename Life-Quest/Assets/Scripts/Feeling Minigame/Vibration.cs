@@ -7,7 +7,7 @@ namespace RDG
     /// <summary>
     /// Class for controlling Vibration. Automatically initializes before scene is loaded.
     /// </summary>
-    public static class Vibration
+    public class Vibration : MonoBehaviour
     {
         // Component Parameters
         public static logLevel LogLevel = logLevel.Disabled;
@@ -75,7 +75,7 @@ namespace RDG
         /// If amplitude is -1, amplitude is Disabled. If -1, device DefaultAmplitude is used. Otherwise, values between 1-255 are allowed.
         /// If 'cancel' is true, Cancel() will be called automatically.
         /// </summary>
-        public static void Vibrate (long milliseconds, int amplitude = -1, bool cancel = false)
+        public void Vibrate (long milliseconds, int amplitude = -1, bool cancel = false)
         {
             string funcToStr () => string.Format("Vibrate ({0}, {1}, {2})", milliseconds, amplitude, cancel);
 
