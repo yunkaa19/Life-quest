@@ -15,52 +15,27 @@ public class NoteObject : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y <= -3.5f)
+        if (transform.position.y <= -3.46f)
         {
-            gameObject.SetActive(false);
-            gameManager.NoteDestroyed(transform, true);
+            DestroyNoteObject();
         }
+    }
 
-        if (Input.touchCount > 0)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Activator"))
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began && canBePressed)
+            if (canBePressed)
             {
-                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-                RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
-
-                if (hit.collider != null && hit.collider.gameObject == gameObject)
-                {
-                    gameObject.SetActive(false);
-                    gameManager.NoteDestroyed(transform, false);
-                }
+                DestroyNoteObject();
+                gameManager.NoteDestroyed(transform, true);
             }
         }
     }
 
-
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void DestroyNoteObject()
     {
-        if (other.tag == "Activator")
-        {
-            canBePressed = true;
-            Debug.Log("Can be pressed: " + canBePressed);
-        }
-        else if (other.tag == "Destroy")
-        {
-            gameObject.SetActive(false);
-            gameManager.NoteDestroyed(transform, true);
-        }
+        Destroy(gameObject);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Activator")
-        {
-            canBePressed = false;
-            Debug.Log("Can be pressed: " + canBePressed);
-        }
-    }
 }

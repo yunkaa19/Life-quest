@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public GameObject tapInfo;
     public GameObject effectParticle;
     public int activeNotes;
-    public int destroyedNotes;
 
     private bool minigameCompleted = false;
 
@@ -37,7 +36,6 @@ public class GameManager : MonoBehaviour
         tapInfo.SetActive(false);
         activeNotes = GameObject.FindGameObjectsWithTag("Note").Length;
         LogActiveNotesCount();
-        destroyedNotes = 0;
     }
 
         void Update()
@@ -49,8 +47,8 @@ public class GameManager : MonoBehaviour
             else if (musicStarted && !beatScrollerStarted)
             {
                 StartBeatScrollerAfterDelay();
-                Debug.Log($"music started:{musicStarted} beatscroller:{beatScrollerStarted}");
             }
+            activeNotes = GameObject.FindGameObjectsWithTag("Note").Length;
 
             CheckForCompletion();
         }
@@ -98,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         void CheckForCompletion()
         {
-            if (activeNotes == destroyedNotes) // Changed from deactivatedNotes
+            if (activeNotes == 0) 
             {
                 StartCoroutine(DelayBeforeSceneLoad());
             }
@@ -131,12 +129,8 @@ public class GameManager : MonoBehaviour
 
         public void NoteDestroyed(Transform noteTransform, bool playParticleSystem) 
         {
-            destroyedNotes++; 
-            Debug.Log($"Destroyed Notes: {destroyedNotes}, Play Particle System: {playParticleSystem}");
-
             if (playParticleSystem)
             {
-                Debug.Log($"Instantiating Particle System for Note {destroyedNotes}");
                 Instantiate(effectParticle, noteTransform.position, Quaternion.identity);
             }
         }
@@ -145,16 +139,4 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Active notes: " + activeNotes);
         }
-
-        void LogDestroyedNotesCount()
-        {
-            Debug.Log("Destroyed notes: " + destroyedNotes);
-        }
-
-        void LogMinigameCompletion()
-        {
-            Debug.Log("Minigame completed!");
-            audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        }
-
 }
