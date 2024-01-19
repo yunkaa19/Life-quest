@@ -10,6 +10,9 @@ TagManager:
   - Ripple
   - Draggable
   - SortedContainer
+  - Activator
+  - Note
+  - Destroy
   layers:
   - Default
   - TransparentFX

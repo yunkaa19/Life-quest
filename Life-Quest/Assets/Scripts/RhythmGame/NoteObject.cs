@@ -18,7 +18,7 @@ public class NoteObject : MonoBehaviour
         if (transform.position.y <= -3.5f)
         {
             gameObject.SetActive(false);
-            gameManager.NoteDeactivated(transform, true);
+            gameManager.NoteDestroyed(transform, true);
         }
 
         if (Input.touchCount > 0)
@@ -33,7 +33,7 @@ public class NoteObject : MonoBehaviour
                 if (hit.collider != null && hit.collider.gameObject == gameObject)
                 {
                     gameObject.SetActive(false);
-                    gameManager.NoteDeactivated(transform, false);
+                    gameManager.NoteDestroyed(transform, false);
                 }
             }
         }
@@ -47,6 +47,11 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = true;
             Debug.Log("Can be pressed: " + canBePressed);
+        }
+        else if (other.tag == "Destroy")
+        {
+            gameObject.SetActive(false);
+            gameManager.NoteDestroyed(transform, true);
         }
     }
 
