@@ -8,6 +8,9 @@ public class GrowCircle : MonoBehaviour
     public Vector3 scaleChange;
     public float distanceToPlayer;
     float growthSpeed;
+    public RDG.Vibration AdvancedVibration;
+    public float vibrationDuration;
+    public int durationAsInt;
 
     void Start()
     {
@@ -34,7 +37,9 @@ public class GrowCircle : MonoBehaviour
         Debug.Log("collided");
         if(collision.gameObject.tag == "Player")
         {
-            Handheld.Vibrate();
+            vibrationDuration = 1000 - (55*distanceToPlayer);
+            durationAsInt = System.Convert.ToInt32(vibrationDuration);
+            AdvancedVibration.Vibrate(durationAsInt, -1, false);
         }
     }
 }
