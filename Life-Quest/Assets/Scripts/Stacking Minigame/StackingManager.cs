@@ -86,13 +86,39 @@ public class StackingManager : MonoBehaviour
         // Start balancing if 4 hexagons are touching and not already balancing
         if (touchingPairs.Count == 3 && !isBalancing)
         {
-            if (IsProperlyStacked())
+            if (IsProperlyStacked() && CheckRotation())
             {
                 isBalancing = true;
                 StartCoroutine(BalancingRoutine());
             }
         }
     }
+
+    private bool CheckRotation()
+    {
+        const float maxRotation = 10f;
+        foreach (var pair in touchingPairs)
+        {
+            float rotation1 = NormalizeAngle(pair.Item1.transform.rotation.eulerAngles.z);
+            float rotation2 = NormalizeAngle(pair.Item2.transform.rotation.eulerAngles.z);
+            float rotationDiff = Mathf.Abs(rotation1 - rotation2);
+
+            // Check if the rotation is within maxRotation degrees of either 0 or 180
+            if (!((rotationDiff <= maxRotation) || (Mathf.Abs(rotationDiff - 180) <= maxRotation)))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        // Normalize angle to be within -180 to 180
+        while (angle > 180) angle -= 360;
+        while (angle < -180) angle += 360;
+        return angle;
+    }   
 
     private bool IsProperlyStacked()
     {
