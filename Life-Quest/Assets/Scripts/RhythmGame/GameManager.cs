@@ -23,10 +23,15 @@ public class GameManager : MonoBehaviour
 
     private bool minigameCompleted = false;
 
+    private AudioManager audioManager;
+    public GameObject popUpCanvas;
+    //private bool IsPopUpActive = true;
+
     void Start()
     {
+        audioManager = AudioManager.Instance;
         instance = this;
-        theMusic.Stop();
+        //theMusic.Stop();
         touchToStartImage.SetActive(true);
         infoImage.SetActive(false);
         tapInfo.SetActive(false);
@@ -44,6 +49,7 @@ public class GameManager : MonoBehaviour
         else if (musicStarted && !beatScrollerStarted)
         {
             StartBeatScrollerAfterDelay();
+            Debug.Log($"music started:{musicStarted} beatscroller:{beatScrollerStarted}");
         }
 
         CheckForCompletion();
@@ -71,7 +77,8 @@ public class GameManager : MonoBehaviour
 
     void PlayDelayedMusic()
     {
-        theMusic.PlayDelayed(0);
+        //theMusic.PlayDelayed(0);
+        audioManager.RhythmMinigame.start();
     }
 
     void StartBeatScrollerAfterDelay()
@@ -113,8 +120,9 @@ public class GameManager : MonoBehaviour
     {
         if (!minigameCompleted)
         {
+            audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
-            minigamesPlayed++; 
+            minigamesPlayed++;
             PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
             minigameCompleted = true;
@@ -124,9 +132,12 @@ public class GameManager : MonoBehaviour
     public void NoteDeactivated(Transform noteTransform, bool playParticleSystem)
     {
         deactivatedNotes++;
+        Debug.Log($"Deactivated Notes: {deactivatedNotes}, Play Particle System: {playParticleSystem}");
+
 
         if (playParticleSystem)
         {
+            Debug.Log($"Instantiating Particle System for Note {deactivatedNotes}");
             Instantiate(effectParticle, noteTransform.position, Quaternion.identity);
         }
     }
@@ -145,6 +156,19 @@ public class GameManager : MonoBehaviour
     void LogMinigameCompletion()
     {
         Debug.Log("Minigame completed!");
-        theMusic.Stop();
+        audioManager.RhythmMinigame.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+
+    //POP UP
+    //public void OpenPopUp()
+    //{
+    //    popUpCanvas.SetActive(true);
+    //    IsPopUpActive = true;
+    //}
+
+    //public void ClosePopUp()
+    //{
+    //    popUpCanvas.SetActive(false);
+    //    IsPopUpActive = false;
+    //}
 }

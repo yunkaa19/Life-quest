@@ -17,6 +17,9 @@ public class AudioManager : MonoBehaviour
     public EventInstance PositiveFeedbackMusic;
     public EventInstance RubYourBelly;
 
+    public EventInstance FeelingPickupSound;
+    public EventInstance RhythmMinigame;
+    public EventInstance Completion;
     private void Awake()
     {
         if(Instance == null)
@@ -31,7 +34,10 @@ public class AudioManager : MonoBehaviour
             FeelingMiniMusic = RuntimeManager.CreateInstance("event:/FeelingMini");
             NeutralMiniMusic = RuntimeManager.CreateInstance("event:/Neutral");
             PositiveFeedbackMusic = RuntimeManager.CreateInstance("event:/PostiveNote");
-            PositiveFeedbackMusic = RuntimeManager.CreateInstance("event:/RubYourBelly");
+            RubYourBelly = RuntimeManager.CreateInstance("event:/RubYourBelly");
+            FeelingPickupSound = RuntimeManager.CreateInstance("event:/FeelingPickupSound");
+            RhythmMinigame = RuntimeManager.CreateInstance("event:/RhythmMinigame");
+            Completion = RuntimeManager.CreateInstance("event:/Completion");
         }
         else
         {

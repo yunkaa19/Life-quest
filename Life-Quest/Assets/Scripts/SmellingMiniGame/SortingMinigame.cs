@@ -26,6 +26,7 @@ public class SortingMinigame : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.Instance;
+        audioManager.SmellingMiniMusic.start();
         GenerateBoxes();
         foreach (DraggableItem item in draggableObjects)
         {
@@ -218,23 +219,10 @@ public class SortingMinigame : MonoBehaviour
     public void OpenPopUp()
     {
         popUpCanvas.SetActive(true);
-        audioManager.SmellingMiniMusic.setPaused(true);
     }
 
     public void ClosePopUp()
     {
         popUpCanvas.SetActive(false);
-
-        if (audioManager.SmellingMiniMusic.getPaused(out bool isPaused) == FMOD.RESULT.OK)
-        {
-            if (isPaused)
-            {
-                audioManager.SmellingMiniMusic.setPaused(false);
-            }
-            else
-            {
-                audioManager.SmellingMiniMusic.start();
-            }
-        }
     }
 }

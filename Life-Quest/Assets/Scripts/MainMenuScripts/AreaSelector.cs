@@ -16,6 +16,11 @@ public class AreaSelector : MonoBehaviour
 
     private AudioManager audioManager;
 
+    public GameObject informationPopUp;
+    private const string infoPopupFileName = "InfoPopup";
+    private const string infoPopupShownKey = "InfoPopupShown";
+
+
 
     private void Start()
     {
@@ -24,6 +29,11 @@ public class AreaSelector : MonoBehaviour
         SceneMapper();
         ResetAllSpriteColors();
         AddTouchListener();
+
+        if (!InfoPopupAlreadyShown())
+        {
+            OpenInfoPopUp();
+        }
     }
 
     private void AddTouchListener()
@@ -94,6 +104,7 @@ public class AreaSelector : MonoBehaviour
         {
             PlayerPrefs.SetInt("PlayBellyRub", 0); 
         }
+        MarkInfoPopupAsShown();
         audioManager.MainMenuMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene(loadingSceneName);
     }
@@ -106,8 +117,30 @@ public class AreaSelector : MonoBehaviour
             Image spriteImage = button.GetComponent<Image>();
             if (spriteImage != null)
             {
-                spriteImage.color = defaultColor;
+                spriteImage.color = defaultColor; 
             }
         }
+    }
+    public void OpenInfoPopUp()
+    {
+        // Implement your logic to open the info popup
+        informationPopUp.SetActive(true);
+        DataPersistenceTasks.SaveString(infoPopupFileName, infoPopupShownKey);
+    }
+
+    public void CloseInfoPopUp()
+    {
+        // Implement your logic to close the info popup
+        informationPopUp.SetActive(false);
+    }
+
+    private bool InfoPopupAlreadyShown()
+    {
+        return DataPersistenceTasks.LoadString(infoPopupFileName) == infoPopupShownKey;
+    }
+
+    private void MarkInfoPopupAsShown()
+    {
+        DataPersistenceTasks.SaveString(infoPopupFileName, infoPopupShownKey);
     }
 }

@@ -12,4 +12,9 @@ public class InstructionWindow : MonoBehaviour
         canvas.sortingOrder = 1;
         mainPanel.SetActive(false);
     }
+    public void ShowPanel()
+    {
+        canvas.sortingOrder = 2;
+        mainPanel.SetActive(true);
+    }
 }

@@ -15,28 +15,30 @@ public class StackingManager : MonoBehaviour
     /// The hashset is used to keep track of which objects are touching.
     ///</summary>
     private HashSet<(GameObject, GameObject)> touchingPairs = new HashSet<(GameObject, GameObject)>();
-    
+
     /// <summary>
     /// The set of these variables are used to keep track of the balancing state.
     /// </summary>
     public bool isBalancing = false;
     private float highestYAtStart;
     private const float YChangeThreshold = 2f;
-    
+
 
     [Header("Balancing Countdown")]
     public TMP_Text balancingCountdownText;
     public float getReadyDuration = 2f;
     public float balancingCountdown = 5f;
-    
-    
-    
+
+    private AudioManager audioManager;
+
     #endregion
-    
+
     #region Unity Methods
     private void Start()
     {
         balancingCountdownText.text = "";
+        audioManager = AudioManager.Instance;
+        audioManager.NeutralMiniMusic.start();
     }
 
     private void Update()
@@ -50,7 +52,7 @@ public class StackingManager : MonoBehaviour
 
     #region Custom Methods
 
-    
+
 
     /// <summary>
     ///  Adds a pair of colliding GameObjects to the touchingPairs set and checks if the balancing phase should start.
@@ -67,7 +69,7 @@ public class StackingManager : MonoBehaviour
         }
     }
 
-    
+
     /// <summary>
     ///  Removes a pair of GameObjects from the touchingPairs set when they are no longer colliding.
     /// </summary>
@@ -77,7 +79,7 @@ public class StackingManager : MonoBehaviour
         touchingPairs.Remove(pair);
     }
 
-    
+
     /// <summary>
     /// Checks if conditions are met to start the balancing phase (e.g., when a certain number of GameObjects are touching).
     /// </summary>
@@ -86,13 +88,39 @@ public class StackingManager : MonoBehaviour
         // Start balancing if 4 hexagons are touching and not already balancing
         if (touchingPairs.Count == 3 && !isBalancing)
         {
-            if (IsProperlyStacked())
+            if (IsProperlyStacked() && CheckRotation())
             {
                 isBalancing = true;
                 StartCoroutine(BalancingRoutine());
             }
         }
     }
+
+    private bool CheckRotation()
+    {
+        const float maxRotation = 10f;
+        foreach (var pair in touchingPairs)
+        {
+            float rotation1 = NormalizeAngle(pair.Item1.transform.rotation.eulerAngles.z);
+            float rotation2 = NormalizeAngle(pair.Item2.transform.rotation.eulerAngles.z);
+            float rotationDiff = Mathf.Abs(rotation1 - rotation2);
+
+            // Check if the rotation is within maxRotation degrees of either 0 or 180
+            if (!((rotationDiff <= maxRotation) || (Mathf.Abs(rotationDiff - 180) <= maxRotation)))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        // Normalize angle to be within -180 to 180
+        while (angle > 180) angle -= 360;
+        while (angle < -180) angle += 360;
+        return angle;
+    }   
 
     private bool IsProperlyStacked()
     {
@@ -149,7 +177,7 @@ public class StackingManager : MonoBehaviour
         }
     }
 
-    
+
     /// <summary>
     /// Calculates and returns the highest Y position among all GameObjects in touchingPairs.
     /// </summary>
@@ -163,13 +191,13 @@ public class StackingManager : MonoBehaviour
         }
         return highestY;
     }
-    
+
     /// <summary>
     /// Updates the UI text to display the remaining time for balancing.
     /// </summary>
     private void UpdateCountdownDisplay(float time)
     {
-        balancingCountdownText.text = "Balance for: " + Mathf.CeilToInt(time).ToString()+ "s";
+        balancingCountdownText.text = "Balance for: " + Mathf.CeilToInt(time).ToString() + "s";
     }
 
     /// <summary>
@@ -177,13 +205,14 @@ public class StackingManager : MonoBehaviour
     /// </summary>
     private void CheckBalance()
     {
-        
+
         if (Mathf.Abs(GetHighestYPosition() - highestYAtStart) > YChangeThreshold)
         {
             // Failure logic here
         }
         else if (touchingPairs.Count >= 3)
         {
+            audioManager.NeutralMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             // Success logic here
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             // Increment minigamesPlayed after the game is completed
@@ -195,18 +224,18 @@ public class StackingManager : MonoBehaviour
         {
             // Failure logic here
         }
-        
+
         isBalancing = false;
     }
-    
-    
+
+
     /// <summary>
     /// A coroutine that manages the balancing countdown, updates the display, and performs a final balance check at the end.
     /// </summary>
     private IEnumerator BalancingRoutine()
     {
         highestYAtStart = GetHighestYPosition();
-        
+
         // Give the player time to get ready
         yield return new WaitForSeconds(getReadyDuration);
 
@@ -223,12 +252,12 @@ public class StackingManager : MonoBehaviour
                 break;
             }
 
-            
+
             UpdateCountdownDisplay(countdown);
             yield return new WaitForSeconds(1f);
             countdown--;
         }
-        
+
         // Clear the countdown display
         UpdateCountdownDisplay(0);
         balancingCountdownText.text = "";
