@@ -124,7 +124,7 @@ public class TaskManager : MonoBehaviour
 
             // Set task text
             Text taskText = taskContainer.GetComponentInChildren<Text>();
-            taskText.text = $"{dailyTasks[i].sense}: {dailyTasks[i].description}";
+            taskText.text = $"{dailyTasks[i].description}";
 
             Image iconImage = taskContainer.transform.Find("SenseIcon").GetComponent<Image>();
             iconImage.sprite = GetSenseIcon(dailyTasks[i].sense);

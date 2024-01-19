@@ -123,6 +123,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &102974140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102974141}
+  - component: {fileID: 102974143}
+  - component: {fileID: 102974142}
+  m_Layer: 5
+  m_Name: logo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &102974141
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102974140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1440962522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16.1093, y: 579.4573}
+  m_SizeDelta: {x: 132.2184, y: 104}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &102974142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102974140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 17f86e92dfbcfb44490c59a8c4b543b2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &102974143
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102974140}
+  m_CullTransparentMesh: 1
 --- !u!1 &134298714
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00099182, y: -647}
+  m_AnchoredPosition: {x: -0.00099182, y: -550.5427}
   m_SizeDelta: {x: 684.55, y: 77.627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &145612639
@@ -1735,7 +1810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.22, y: -461}
+  m_AnchoredPosition: {x: 10.22, y: -342.54272}
   m_SizeDelta: {x: 704.98, y: 624.0394}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763550706
@@ -1786,8 +1861,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1822,7 +1897,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.1176147, y: 310.39838, z: 0, w: 214.56439}
+  m_margin: {x: -4.1176147, y: 310.39838, z: 0, w: 175.77332}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2579,7 +2654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303, y: 886.50006}
+  m_AnchoredPosition: {x: 363, y: 886.50006}
   m_SizeDelta: {x: 171.5395, y: 171.5395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325522628
@@ -2787,7 +2862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.217, y: -288.8946}
+  m_AnchoredPosition: {x: 10.217, y: -182.54272}
   m_SizeDelta: {x: 704.98, y: 624.0394}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428486761
@@ -2810,12 +2885,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Once you''ve selected a pillar, embark on a mindful minigame that aligns
-    with the chosen sense.
-
-    Alternatively, if you prefer a more grounded approach,
-    explore our curated list of daily tasks designed to bring mindfulness into your
-    routine.'
+  m_text: Once you've selected a pillar, embark on a mindful minigame that aligns
+    with the chosen sense or explore our  list of daily tasks designed to bring mindfulness
+    into your routine.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 013196e6927c0a443b9847b6a3ff8e57, type: 2}
   m_sharedMaterial: {fileID: 1783003897354259076, guid: 013196e6927c0a443b9847b6a3ff8e57, type: 2}
@@ -2842,8 +2914,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2878,7 +2950,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.1176147, y: 196.34192, z: 0, w: 163.72058}
+  m_margin: {x: -4.1176147, y: 196.34192, z: 0, w: 165.56775}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3135,7 +3207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053472782157300823, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 437
+      value: 480.45728
       objectReference: {fileID: 0}
     - target: {fileID: 3333290848247826989, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_Pivot.x
@@ -3239,21 +3311,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3335431020447320228, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -39.2146
+      value: 57.242676
       objectReference: {fileID: 0}
     - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_text
       value: "Hello and thank you for choosing Life-Quest as your companion on the
-        journey to mindfulness! \nOur goal is to help you cultivate a sense of calm,
-        focus, and well-being in your everyday life."
+        journey to mindfulness! \n"
       objectReference: {fileID: 0}
     - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_fontSize
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_margin.w
-      value: 444.30048
+      value: 501.56354
       objectReference: {fileID: 0}
     - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_margin.x
@@ -3265,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3865963992804202044, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_fontSizeBase
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4447993522388508724, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_Camera
@@ -3297,7 +3368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7552645708435232356, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -86.457184
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8510672573158218065, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -3317,7 +3388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8536739250356089092, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -148.6051
+      value: -52.147827
       objectReference: {fileID: 0}
     - target: {fileID: 8734398751407216382, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3343,6 +3414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3333290848247826989, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 145612638}
+    - targetCorrespondingSourceObject: {fileID: 3333290848247826989, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 102974141}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7115093d251a28d41ae22fc4096649d3, type: 3}
 --- !u!224 &1440962522 stripped
@@ -4319,7 +4393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.219, y: -81.2146}
+  m_AnchoredPosition: {x: 10.219, y: 100.457275}
   m_SizeDelta: {x: 704.98, y: 624.0394}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950729639
@@ -4371,8 +4445,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4407,7 +4481,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.1176147, y: 196.34192, z: 0, w: 279.792}
+  m_margin: {x: -4.1176147, y: 196.34192, z: 0, w: 235.45929}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

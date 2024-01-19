@@ -74,7 +74,7 @@ public class SeedSelector : MonoBehaviour
             audioManager.TastingMiniMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             int minigamesPlayed = PlayerPrefs.GetInt("MinigamesPlayed", 0);
             minigamesPlayed++;
-            PlayerPrefs.SetInt("MinigamesPlayer", minigamesPlayed);
+            PlayerPrefs.SetInt("MinigamesPlayed", minigamesPlayed);
             SceneManager.LoadScene("CompletionScreen");
 
         }

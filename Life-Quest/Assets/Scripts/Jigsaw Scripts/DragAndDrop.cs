@@ -18,6 +18,7 @@ public class DragAndDrop : MonoBehaviour
     {
         audioManager = AudioManager.Instance;
         audioManager.SeeingMiniMusic.start();
+        amountOfRightPieces = 0;
     }
 
     void Update()

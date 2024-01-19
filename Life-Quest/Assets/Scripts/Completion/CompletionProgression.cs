@@ -14,6 +14,7 @@ public class CompletionProgression : MonoBehaviour
     }
     public void LoadMainMenu()
     {
+        audioManager.Completion.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene("Main Menu");
     }
 }

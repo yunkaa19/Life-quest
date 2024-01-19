@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2123395881246165038, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1678
+      value: 1713
       objectReference: {fileID: 0}
     - target: {fileID: 2123395881246165038, guid: d311e43021e48c14b9d8a5712bfebe95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -410,6 +410,18 @@ PrefabInstance:
     - target: {fileID: 4329943048827260143, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: m_Name
       value: TreasureGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465669729447055987, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465669729447055987, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465669729447055987, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8572601237144629508, guid: 886e7168888cad848a43deffc578e4ce, type: 3}
       propertyPath: m_Pivot.x

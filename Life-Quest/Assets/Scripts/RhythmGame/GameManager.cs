@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private AudioManager audioManager;
     public GameObject popUpCanvas;
-    //private bool IsPopUpActive = true;
+    private bool IsPopUpActive = true;
 
     void Start()
     {
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         void CheckForMusicStart()
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && IsPopUpActive == false)
             {
                 StartMusic();
             }
@@ -131,4 +131,17 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Active notes: " + activeNotes);
         }
+
+    //POP UP
+    public void OpenPopUp()
+    {
+        popUpCanvas.SetActive(true);
+        IsPopUpActive = true;
+    }
+
+    public void ClosePopUp()
+    {
+        popUpCanvas.SetActive(false);
+        IsPopUpActive = false;
+    }
 }

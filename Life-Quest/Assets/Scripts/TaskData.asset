@@ -24,13 +24,13 @@ MonoBehaviour:
     sense: Hearing
   - description: Touch an object you regularly hold, what makes it feel familiar?
     sense: Touch
-  - description: Task 2 for Touch
+  - description: Touch your face with your eyes closed, what makes it feel special?
     sense: Touch
-  - description: Task 1 for Taste
+  - description: Take a bite of your favorite fruit
     sense: Taste
-  - description: Task 2 for Taste
+  - description: Take a bite of something you haven't tasted before
     sense: Taste
   - description: Go outside and smell a flower
     sense: Smell
-  - description: Find a scent that reminds you of something and describe it
+  - description: Find a scent that reminds you of someone you love and describe it
     sense: Smell

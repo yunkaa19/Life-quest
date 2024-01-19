@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: ../Life-Quest Sounds/Life-quest-Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638412598662455401
+  lastModified: 638409667762008807
   FileSizes:
   - Name: Desktop
     Value: 1222
@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: ../Life-Quest Sounds/Life-quest-Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638412598662442564
+  lastModified: 638409667761999260
   FileSizes:
   - Name: Desktop
     Value: 11161600
@@ -234,7 +234,7 @@ MonoBehaviour:
   - {fileID: -1419715685985612897}
   StringsBanks:
   - {fileID: -7117901987211176367}
-  cacheTime: 638412598662455401
+  cacheTime: 638409667762008807
   cacheVersion: 131616
 --- !u!114 &1656519368182040695
 MonoBehaviour:
