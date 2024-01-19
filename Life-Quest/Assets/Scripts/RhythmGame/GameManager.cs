@@ -127,14 +127,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        public void NoteDestroyed(Transform noteTransform, bool playParticleSystem) 
-        {
-            if (playParticleSystem)
-            {
-                Instantiate(effectParticle, noteTransform.position, Quaternion.identity);
-            }
-        }
-
         void LogActiveNotesCount()
         {
             Debug.Log("Active notes: " + activeNotes);
